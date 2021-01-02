@@ -1,0 +1,20 @@
+{# Wrapper template #}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{{ config.hed }} Michigan Daily</title>
+        <link rel="stylesheet" href="./css/base.scss" type="text/css" media="all">
+        <script type="text/javascript">
+            window.config = {{ config | dump | safe }}
+        </script>
+    </head>
+    <body>
+        <a href="./graphic/index.html" target="_blank">View Raw</a>
+        <div id="graphic">
+        </div>
+        <textarea name="code-snippet" id="code-snippet"></textarea>
+        <script src="./js/index.js" charset="utf-8"></script>
+    </body>
+</html>
