@@ -13,9 +13,9 @@ const htmlparser = require("htmlparser2");
 const Entities = require("html-entities").AllHtmlEntities;
 
 const config = JSON.parse(fs.readFileSync("./config.json"));
-const fileId = config.archie.gdoc;
-const archieOutput = config.archie.output;
-const keyFile = config.archie.apiConfig;
+const fileId = config.fetch.archie.id;
+const archieOutput = config.fetch.archie.output;
+const keyFile = config.archie.fetch.archie.auth;
 
 const auth = new google.auth.GoogleAuth({
   keyFile,

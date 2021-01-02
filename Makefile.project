@@ -1,16 +1,15 @@
-.PHONY: gdoc init fetch dev build
+.PHONY: dev build gh-pages build-prod
 
 build-prod: export NODE_ENV = production
 build-prod: build
-
 
 dev:
 	yarn run dev
 
 build:
+	rm -rf build/*
 	rm -rf dist/*
 	yarn run build
-
 
 gh-pages: build-prod
 	(cd dist; git add --all)
