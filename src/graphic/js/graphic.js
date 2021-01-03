@@ -1,5 +1,6 @@
 // JS for your graphic
 import pym from "pym.js";
+import * as d3 from "d3";
 
 const resize = () => {};
 
