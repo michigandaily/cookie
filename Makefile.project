@@ -3,6 +3,11 @@
 build-prod: export NODE_ENV = production
 build-prod: build
 
+install:
+	yarn install
+	rm -rf dist/
+	git worktree add -b gh-pages dist
+
 dev:
 	yarn run dev
 
