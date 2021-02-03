@@ -8,6 +8,8 @@ body {
 #graphic {
     border: 1px solid $gray;
     width: 400px;
+    resize: horizontal;
+    overflow-x: auto;
 }
 
 textarea {
