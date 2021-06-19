@@ -37,5 +37,4 @@ There are some SCSS variables available to you:
 - `$sans` for sans serif font (Open Sans)
 - `$blue`, `$maize`, `$gray`, `$black`, `$white`, and `$blue-{1..5}` for colors
 
-Finally, to deploy to _magnify_, copy the `dist/graphic/` repository to the
-your magnify folder and push.
+After deploying the project by running `make gh-pages`, in your repo on GitHub desktop, go to [`Settings>Pages`](settings/pages) and check **Enforce HTTPS**. All of our sites must be served through https, so please make sure to double check this!
