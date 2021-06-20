@@ -1,0 +1,27 @@
+{
+  "slug": "graphic_slug",
+  "hed": "Headline",
+  "dek": "This is a short description",
+  "byline": "Firstname Lastname",
+  "source": "Source: This is the source",
+
+  "ga_id": "UA-168080597-1",
+
+  "render": {
+    "srcDir": "./src/",
+    "buildDir": "./build/"
+  },
+  "fetch": {
+    "archie": {
+      "id": "",
+      "output": "",
+      "auth": "./auth.json"
+    },
+    "sheets": {
+      "id": "",
+      "sheetId": "",
+      "output": "",
+      "auth": "./auth.json"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@import "../../css/fonts.scss";
+@import "../../css/colors.scss";
+@import "./graphic.scss";
+
+body {
+    font-family: $serif;
+    padding: 1px;
+    padding-bottom: 10px;
+}
+
+figure {
+    margin: 0;
+}
+
+.figure__graphic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.figure__title {
+  font-size: 1.2rem;
+  font-family: $sans;
+}
+
+.figure__byline {
+  font-size: 0.8rem;
+}
+
+.figure__source {
+    font-size: 0.8rem;
+}
+
+.figure__caption {
+  margin-bottom: 16px;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 300;
+}
