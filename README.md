@@ -37,4 +37,4 @@ There are some SCSS variables available to you:
 - `$sans` for sans serif font (Open Sans)
 - `$blue`, `$maize`, `$gray`, `$black`, `$white`, and `$blue-{1..5}` for colors
 
-After deploying the project by running `make gh-pages`, in your repo on GitHub desktop, go to [`Settings>Pages`](settings/pages) and check **Enforce HTTPS**. All of our sites must be served through https, so please make sure to double check this!
+After deploying the project to GitHub pages by running `make gh-pages`, in your repo on GitHub desktop, go to [`Settings>Pages`](../../settings/pages) and check **Enforce HTTPS**. All of our sites should enforce https, so please make sure to double check this! Your raw dataviz will be accessible at `https://datagraphics.michigandaily.com/<NameOfRepo>/graphic/index.html`
