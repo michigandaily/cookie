@@ -10,11 +10,11 @@ It has several useful features:
 
 - [X] MicroCMS with ArchieML
 - [X] Bundling with Parcel
-- [X] D3v6 as a dependency by default
+- [X] D3v7 as a dependency by default
 - [X] Easy deploy to Github pages
 - [ ] Preview screen with embed code (WIP)
 - [ ] Data ingest from Google sheets (WIP)
-- [ ] Easy deploy to S3 bucket (planned)
+- [X] Easy deploy to S3 bucket
 
 ## Using this template
 
