@@ -12,10 +12,23 @@
         </script>
     </head>
     <body>
-        <a href="./graphic/index.html" target="_blank">View Raw</a>
+        <strong>Embed Instructions</strong>
+        <ol>
+            <li>
+                Copy the URL of the raw visual:
+                <input type="text" value="" id="url-input" readonly="readonly">
+                <button id="copy-url-button">Copy</button>
+            </li>
+            <li>Paste the URL into a Pym.js Embed Block on a Wordpress post</li>
+        </ol>
+        <a href="./graphic/index.html" target="_blank"><button>View Raw</button></a>
+        <button id="desktop-preview">Desktop Preview</button>
+        <button id="large-mobile-preview">Large Phone Preview</button>
+        <button id="small-mobile-preview">Small Phone Preview</button>
+        <br>
+        <br>
         <div id="graphic">
         </div>
-        <textarea name="code-snippet" id="code-snippet"></textarea>
         <script src="./js/index.js" charset="utf-8"></script>
     </body>
 </html>
