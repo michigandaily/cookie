@@ -14,7 +14,7 @@ It has several useful features:
 - [X] Easy deploy to Github pages
 - [ ] Preview screen with embed code (WIP)
 - [ ] Data ingest from Google sheets (WIP)
-- [ ] Easy deploy to S3 bucket (planned)
+- [X] Easy deploy to S3 bucket
 
 ## Using this template
 
