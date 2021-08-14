@@ -18,5 +18,6 @@ build:
 
 gh-pages: build-prod
 	(cd dist; git add --all)
-	(cd dist; git commit -m "Build output as of $(shell git log '--format=format:%H' main -1)")
-	git push -u origin gh-pages
+	(cd dist; git commit -m "Build output as of $(shell git log '--format=format:%H' main -1)" || echo "No changes to commit.")
+	(cd dist; git pull -s ours --no-edit origin gh-pages)
+	(cd dist; git push -u origin gh-pages)
