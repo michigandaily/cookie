@@ -40,9 +40,9 @@ window.onload = () => {
     }
   }
 
-  document.querySelector(
-    "#url-input"
-  ).value = `${window.location.href}graphic/index.html`;
+  document.querySelector("#url-input").value = `${
+    window.location.origin + window.location.pathname
+  }graphic/index.html`;
 
   const resizeObserver = new ResizeObserver(
     debounce((entries) => {
