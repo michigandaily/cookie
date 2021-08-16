@@ -12,9 +12,9 @@ const draw = () => {
   // step 7: set up interactions
 }
 
-const resize = () => {};
+window.onresize = () => { };
 
-window.onload = function () {
-  const pymChild = new pym.Child({ renderCallback: resize, polling: 500 });
+window.onload = () => {
+  const pymChild = new pym.Child({ polling: 500 });
   pymChild.sendHeight();
 };
