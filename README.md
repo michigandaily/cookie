@@ -19,7 +19,7 @@ It has several useful features:
 ## Using this template
 
 Clone this repository, then run `make init` to initialize the project. If the
-project has already been initialized, just run `yarn` to install the
+project has already been initialized, just run `make install` to install the
 dependencies.
 
 You can use `make dev` to start a development server, `make build` to build
