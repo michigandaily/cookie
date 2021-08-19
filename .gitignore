@@ -1,7 +1,7 @@
 # Cookie specific
 build/
 dist/
-
+auth.json
 
 # Logs
 logs
@@ -110,8 +110,9 @@ dist
 # TernJS port file
 .tern-port
 
-# Stores VSCode versions used for testing VSCode extensions
+# Visual Studio Code
 .vscode-test
+.vscode
 
 # yarn v2
 .yarn/cache
