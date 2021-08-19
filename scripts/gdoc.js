@@ -7,15 +7,13 @@
 
 import { google } from "googleapis";
 import { readFileSync, writeFileSync } from "fs";
-import { parse as _parse } from "url";
+import { decode } from "html-entities";
 
 import archieml from "archieml";
 const { load } = archieml;
 
 import htmlparser2 from "htmlparser2";
 const { DomHandler, Parser } = htmlparser2;
-
-import { decode } from "html-entities";
 
 const config = JSON.parse(readFileSync("./config.json"));
 const fileId = config.fetch.archie.id;
@@ -29,7 +27,7 @@ const auth = new google.auth.GoogleAuth({
 
 const drive = google.drive({ version: "v3", auth });
 
-const parse = (data) => {
+const parse = file => {
   return new Promise((res, rej) => {
     const handler = new DomHandler(function (error, dom) {
       if (error) {
@@ -70,11 +68,11 @@ const parse = (data) => {
           // from: http://www.google.com/url?q=http%3A%2F%2Fwww.nytimes.com...
           // to: http://www.nytimes.com...
           if (
-            aTag.attribs.href &&
-            _parse(aTag.attribs.href, true).query &&
-            _parse(aTag.attribs.href, true).query.q
+            href &&
+            new URL(href).search &&
+            new URL(href).searchParams.has("q")
           ) {
-            href = _parse(aTag.attribs.href, true).query.q;
+            href = new URL(href).searchParams.get("q");
           }
 
           let str = '<a href="' + href + '">';
@@ -109,14 +107,13 @@ const parse = (data) => {
       res(parsed);
     });
     const parser = new Parser(handler);
-    parser.write(data);
+    parser.write(file.data);
     parser.end();
   });
 };
+
 drive.files
   .export({ fileId: fileId, mimeType: "text/html" })
-  .then((res) => {
-    return parse(res.data);
-  })
-  .then((res) => writeFileSync(archieOutput, JSON.stringify(res)))
+  .then(parse)
+  .then(res => writeFileSync(archieOutput, JSON.stringify(res)))
   .catch(console.error);
