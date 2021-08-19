@@ -10,37 +10,40 @@ const keyFile = config.fetch.sheets.auth;
 
 const auth = new google.auth.GoogleAuth({
   keyFile,
-  scopes: [
-    "https://www.googleapis.com/auth/spreadsheets"
-  ],
+  scopes: ["https://www.googleapis.com/auth/spreadsheets"],
 });
 
-const sheet = google.sheets({ version: "v4", auth: auth });
+const sheet = google.sheets({ version: "v4", auth });
 
 const parse = res => {
   const csv = Array();
 
-  const sheet = res.data.sheets.pop();
-  const data = sheet.data.pop();
-  const headers = data.rowData.shift().values.map(h => h.formattedValue);
+  const data = res.data.values;
+  const headers = data.shift().map(h => h.trim());
 
-  const headerToValue = (d, i) => [headers[i], d.formattedValue || String()];
+  const headerToValue = (d, i) => [headers[i], d];
 
-  data.rowData.forEach(row => {
-    csv.push(Object.fromEntries(row.values.map(headerToValue)));
+  data.forEach(row => {
+    csv.push(Object.fromEntries(row.map(headerToValue)));
   });
 
   return csvFormat(csv, headers);
 };
 
-sheet.spreadsheets.getByDataFilter(
-  {
+async function main() {
+  const gidQ = await sheet.spreadsheets.getByDataFilter({
     spreadsheetId: spreadsheetId,
-    requestBody: {
-      includeGridData: true,
-      dataFilters: [{ gridRange: { sheetId: sheetId } }]
-    }
-  })
-  .then(parse)
-  .then(csv => writeFileSync(output, csv))
-  .catch(console.error);
+    fields: "sheets(properties(title))",
+    requestBody: { dataFilters: [{ gridRange: { sheetId: sheetId } }] }
+  });
+
+  const nameQ = await sheet.spreadsheets.values.get({
+    spreadsheetId: spreadsheetId,
+    range: `'${gidQ.data.sheets.pop().properties.title}'`
+  });
+
+  const csv = parse(nameQ);
+  writeFileSync(output, csv);
+}
+
+main();
