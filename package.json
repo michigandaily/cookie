@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Graphics template for the Michigan Daily",
   "main": "index.js",
+  "type": "module",
   "author": "Naitian Zhou",
   "license": "MIT",
   "scripts": {

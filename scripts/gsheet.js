@@ -1,7 +1,8 @@
-const { google } = require("googleapis");
-const fs = require("fs");
+import { google } from "googleapis";
+import { readFileSync, writeFileSync } from "fs";
+import { csvFormat } from "d3";
 
-const config = require("./../config.json");
+const config = JSON.parse(readFileSync("./config.json"));
 const spreadsheetId = config.fetch.sheets.id;
 const sheetId = config.fetch.sheets.sheetId;
 const output = config.fetch.sheets.output;
@@ -17,19 +18,21 @@ const auth = new google.auth.GoogleAuth({
 const sheet = google.sheets({ version: "v4", auth: auth });
 
 const parse = res => {
-  let csv = String();
+  const csv = Array();
 
-  res.data.sheets.forEach(sheet => {
-    const data = sheet.data.pop();
-    data.rowData.forEach(row => {
-      row.values.forEach(v => {
-        csv += `"${v.formattedValue || String()}",`
-      });
-      csv += "\n";
+  const sheet = res.data.sheets.pop();
+  const data = sheet.data.pop();
+  const headers = data.rowData.shift().values.map(h => h.formattedValue);
+
+  data.rowData.forEach(r => {
+    let row = Object();
+    r.values.forEach((v, i) => {
+      row[headers[i]] = v.formattedValue || String();
     });
+    csv.push(row);
   });
 
-  return csv.replaceAll(",\n", "\n");
+  return csvFormat(csv, headers);
 };
 
 sheet.spreadsheets.getByDataFilter(
@@ -41,5 +44,5 @@ sheet.spreadsheets.getByDataFilter(
     }
   })
   .then(parse)
-  .then(csv => fs.writeFileSync(output, csv))
+  .then(csv => writeFileSync(output, csv))
   .catch(console.error);
