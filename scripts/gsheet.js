@@ -24,12 +24,10 @@ const parse = res => {
   const data = sheet.data.pop();
   const headers = data.rowData.shift().values.map(h => h.formattedValue);
 
-  data.rowData.forEach(r => {
-    let row = Object();
-    r.values.forEach((v, i) => {
-      row[headers[i]] = v.formattedValue || String();
-    });
-    csv.push(row);
+  const headerToValue = (d, i) => [headers[i], d.formattedValue || String()];
+
+  data.rowData.forEach(row => {
+    csv.push(Object.fromEntries(row.values.map(headerToValue)));
   });
 
   return csvFormat(csv, headers);
