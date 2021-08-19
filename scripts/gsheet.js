@@ -1,6 +1,6 @@
 import { google } from "googleapis";
 import { readFileSync, writeFileSync } from "fs";
-import { csvFormat } from "d3";
+import { csvFormat } from "d3-dsv";
 
 const config = JSON.parse(readFileSync("./config.json"));
 const spreadsheetId = config.fetch.sheets.id;
