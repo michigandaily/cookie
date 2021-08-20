@@ -1,5 +1,5 @@
 import { google } from "googleapis";
-import { readFileSync, writeFileSync } from "fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import { csvFormat } from "d3-dsv";
 
 const config = JSON.parse(readFileSync("./config.json"));
@@ -43,6 +43,9 @@ async function main() {
   });
 
   const csv = parse(nameQ);
+
+  const dir = output.substring(0, output.lastIndexOf("/"));
+  !existsSync(dir) && mkdirSync(dir);
   writeFileSync(output, csv);
 }
 
