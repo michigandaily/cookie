@@ -45,7 +45,7 @@ async function main() {
   const csv = parse(nameQ);
 
   const dir = output.substring(0, output.lastIndexOf("/"));
-  !existsSync(dir) && mkdirSync(dir);
+  !existsSync(dir) && mkdirSync(dir, { recursive: true });
   writeFileSync(output, csv);
 }
 
