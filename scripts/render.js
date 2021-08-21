@@ -1,15 +1,20 @@
 // We will allow sync in these scripts.
 /* eslint-disable no-sync */
 
-const fs = require("fs-extra");
-const glob = require("glob");
-const nunjucks = require("nunjucks");
+import fs_extra from "fs-extra";
+const { readFileSync, outputFile, mkdirpSync, copySync } = fs_extra;
+
+import glob from "glob";
+const { sync } = glob;
+
+import nunjucks from "nunjucks";
+const { renderString, configure } = nunjucks;
 
 const bindData = (obj, data) => ({
     data,
     ...(typeof obj === "string" && obj !== null ? { obj } : obj),
   }),
-  config = JSON.parse(fs.readFileSync("./config.json", "utf-8")),
+  config = JSON.parse(readFileSync("./config.json", "utf-8")),
   log = (obj) => {
     console.log(obj);
     return obj;
@@ -18,12 +23,12 @@ const bindData = (obj, data) => ({
     meta: {
       path,
     },
-    content: fs.readFileSync(path, "utf-8"),
+    content: readFileSync(path, "utf-8"),
   }),
   renderNunjucks = (obj) => {
     const { data, content } = obj,
-      output = nunjucks.renderString(content, data);
-    nunjucks.configure({ autoescape: false });
+      output = renderString(content, data);
+    configure({ autoescape: false });
     return { ...obj, content: output };
   },
   writeFile = (obj) => {
@@ -32,7 +37,7 @@ const bindData = (obj, data) => ({
       config.render.srcDir,
       config.render.buildDir
     );
-    fs.outputFile(outfile, content);
+    outputFile(outfile, content);
     console.log(`Rendered ${meta.path} -> ${outfile}`);
   };
 
@@ -42,11 +47,10 @@ const bindData = (obj, data) => ({
 // }
 
 // Ensure build directory exists
-fs.mkdirpSync(config.render.buildDir);
-fs.copySync(config.render.srcDir, config.render.buildDir);
+mkdirpSync(config.render.buildDir);
+copySync(config.render.srcDir, config.render.buildDir);
 
-glob
-  .sync(`${config.render.srcDir}/**/*.html`)
+sync(`${config.render.srcDir}/**/*.html`)
   .map(readFile)
   .map((obj) =>
     bindData(obj, {

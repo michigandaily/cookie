@@ -5,17 +5,20 @@
 
 // const config = fs.readFileSync(env.CONFIG_PATH)
 
-const { google } = require("googleapis");
-const archieml = require("archieml");
-const fs = require("fs");
-const url = require("url");
-const htmlparser = require("htmlparser2");
-const Entities = require("html-entities").AllHtmlEntities;
+import { google } from "googleapis";
+import { readFileSync, writeFileSync } from "fs";
+import { decode } from "html-entities";
 
-const config = JSON.parse(fs.readFileSync("./config.json"));
+import archieml from "archieml";
+const { load } = archieml;
+
+import htmlparser2 from "htmlparser2";
+const { DomHandler, Parser } = htmlparser2;
+
+const config = JSON.parse(readFileSync("./config.json"));
 const fileId = config.fetch.archie.id;
 const archieOutput = config.fetch.archie.output;
-const keyFile = config.archie.fetch.archie.auth;
+const keyFile = config.fetch.archie.auth;
 
 const auth = new google.auth.GoogleAuth({
   keyFile,
@@ -24,16 +27,16 @@ const auth = new google.auth.GoogleAuth({
 
 const drive = google.drive({ version: "v3", auth });
 
-const parse = (data) => {
+const parse = file => {
   return new Promise((res, rej) => {
-    const handler = new htmlparser.DomHandler(function (error, dom) {
+    const handler = new DomHandler(function (error, dom) {
       if (error) {
         rej(error);
         return;
       }
       const tagHandlers = {
         _base: function (tag) {
-          let str = "";
+          let str = "", func;
           tag.children.forEach(function (child) {
             if ((func = tagHandlers[child.name || child.type]))
               str += func(child);
@@ -65,11 +68,11 @@ const parse = (data) => {
           // from: http://www.google.com/url?q=http%3A%2F%2Fwww.nytimes.com...
           // to: http://www.nytimes.com...
           if (
-            aTag.attribs.href &&
-            url.parse(aTag.attribs.href, true).query &&
-            url.parse(aTag.attribs.href, true).query.q
+            href &&
+            new URL(href).search &&
+            new URL(href).searchParams.has("q")
           ) {
-            href = url.parse(aTag.attribs.href, true).query.q;
+            href = new URL(href).searchParams.get("q");
           }
 
           let str = '<a href="' + href + '">';
@@ -93,26 +96,24 @@ const parse = (data) => {
       let parsedText = tagHandlers._base(body);
 
       // Convert html entities into the characters as they exist in the google doc
-      const entities = new Entities();
-      parsedText = entities.decode(parsedText);
+      parsedText = decode(parsedText);
 
       // Remove smart quotes from inside tags
       parsedText = parsedText.replace(/<[^<>]*>/g, function (match) {
         return match.replace(/”|“/g, '"').replace(/‘|’/g, "'");
       });
 
-      const parsed = archieml.load(parsedText);
+      const parsed = load(parsedText);
       res(parsed);
     });
-    const parser = new htmlparser.Parser(handler);
-    parser.write(data);
+    const parser = new Parser(handler);
+    parser.write(file.data);
     parser.end();
   });
 };
+
 drive.files
   .export({ fileId: fileId, mimeType: "text/html" })
-  .then((res) => {
-    return parse(res.data);
-  })
-  .then((res) => fs.writeFileSync(archieOutput, JSON.stringify(res)))
+  .then(parse)
+  .then(res => writeFileSync(archieOutput, JSON.stringify(res)))
   .catch(console.error);
