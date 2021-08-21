@@ -8,6 +8,14 @@ const sheetId = config.fetch.sheets.sheetId;
 const output = config.fetch.sheets.output;
 const keyFile = config.fetch.sheets.auth;
 
+if (!existsSync(keyFile)) {
+  console.error(`
+  Could not open service account credentials at ${keyFile}.
+  Reconfigure fetch.sheets.auth in config.json or download the credentials file.
+  `);
+  process.exit(1);
+}
+
 const auth = new google.auth.GoogleAuth({
   keyFile,
   scopes: ["https://www.googleapis.com/auth/spreadsheets"],
