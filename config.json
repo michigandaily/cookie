@@ -18,8 +18,8 @@
     },
     "sheets": {
       "id": "",
-      "sheetId": "",
-      "output": "",
+      "sheetId": "0",
+      "output": "./src/graphic/data/data.csv",
       "auth": "./auth.json"
     }
   }

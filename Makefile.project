@@ -1,4 +1,4 @@
-.PHONY: dev build gh-pages build-prod
+.PHONY: dev build gh-pages build-prod gdoc gsheet
 
 build-prod: export NODE_ENV = production
 build-prod: build
@@ -10,6 +10,12 @@ install:
 
 dev:
 	yarn run dev
+
+gdoc:
+	node scripts/gdoc.js
+
+gsheet:
+	node scripts/gsheet.js
 
 build:
 	rm -rf build/*
