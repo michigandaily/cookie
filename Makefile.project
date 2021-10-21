@@ -12,10 +12,10 @@ dev:
 	yarn run dev
 
 gdoc:
-	node scripts/gdoc.js
+	yarn sink gdoc
 
 gsheet:
-	node scripts/gsheet.js
+	yarn sink gsheet
 
 build:
 	rm -rf build/*
