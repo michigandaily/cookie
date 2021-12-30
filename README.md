@@ -9,7 +9,7 @@ It has several useful features:
 - [X] MicroCMS with ArchieML
 - [X] Bundling with Parcel
 - [X] D3v7 as a dependency by default
-- [X] Easy deploy to Github Pages
+- [X] Easy deploy to GitHub Pages
 - [X] Preview screen with embed URL
 - [X] Data ingest from Google Sheets
 - [ ] Easy deploy to S3 bucket
@@ -32,15 +32,25 @@ There are some SCSS variables available to you:
 
 Download our service account credentials file (`auth.json`) and put it in the root of this repository.
 
-#### Fetching HTML from a Google Doc
+The credentials file will have a `client_email` property. Share your Google Doc or Google Sheet with the value of this property in order to allow permission to fetch.
+
+Our `config.json` file contains a `fetch` property which has an array of objects as the value. Each object represents a file that will be fetched.
+
+An object must have `id`, `output`, and `auth` properties in order to query for a Google Doc. An object must also have a `sheetId` property to query for a Google Sheet.
+
+The `auth` property of each object is the name of the credentials file. Since `auth` is a property of each object instead of the entire configuration file, we are able to fetch files that come from locations that may require different permissions.
+
+You may fetch as few or as many files as you want.
+
+#### Fetching JSON from a Google Doc
 
 Consider the following generalized URL:
 
 `https://docs.google.com/document/d/FILE_ID/edit`
 
-1. In `config.json`, put `FILE_ID` in `fetch.archie.id`.
-2. Put a path where the JSON-ified AML should go in `fetch.archie.output`. This path should probably be somewhere in `src/graphic`.
-3. Run `make gdoc` to fetch the specified doc.
+1. In `config.json`, put `FILE_ID` in `id`.
+2. Put a path where the JSON-ified AML should go in `output`. This path should probably be somewhere in `src/graphic`.
+3. Run `make gdoc` to fetch the specified document.
 
 #### Fetching a CSV from a Google Sheet
 
@@ -48,9 +58,9 @@ Consider the following generalized URL:
 
 `https://docs.google.com/spreadsheets/d/FILE_ID/edit#gid=SHEET_ID`
 
-1. In `config.json`, put `FILE_ID` in `fetch.sheets.id`.
-2. Put `SHEET_ID` in `fetch.sheets.sheetId`.
-3. Put a path where the CSV should go in `fetch.sheets.output`. This path should probably be somewhere in `src/graphic`.
+1. In `config.json`, put `FILE_ID` in `id`.
+2. Put `SHEET_ID` in `sheetId`.
+3. Put a path where the CSV should go in `output`. This path should probably be somewhere in `src/graphic`.
 4. Run `make gsheet` to fetch the specified sheet.
 
 ## Deploying to GitHub Pages

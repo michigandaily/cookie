@@ -12,17 +12,17 @@
     "srcDir": "./src/",
     "buildDir": "./build/"
   },
-  "fetch": {
-    "archie": {
+  "fetch": [
+    {
       "id": "",
       "output": "",
       "auth": "./auth.json"
     },
-    "sheets": {
+    {
       "id": "",
       "sheetId": "0",
-      "output": "./src/graphic/data/data.csv",
+      "output": "",
       "auth": "./auth.json"
     }
-  }
+  ]
 }
