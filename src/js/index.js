@@ -31,11 +31,9 @@ window.onload = () => {
   new pym.Parent("graphic", "./graphic/index.html", {});
 
   // Set the width on load if exists
-  if (location.hash) {
-    const params = getQueryParams();
-    if (params.has("width")) {
-      setWidth(params.get("width"));
-    }
+  const params = getQueryParams();
+  if (params.has("width")) {
+    setWidth(params.get("width"));
   }
 
   const resizeObserver = new ResizeObserver(
