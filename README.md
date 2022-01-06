@@ -16,7 +16,7 @@ It has several useful features:
 
 ## Using this template
 
-Clone this repository, then run `make init` to initialize the project. If the project has already been initialized, just run `make install` to install the dependencies.
+Click the green "Use this template" button to create a new instance of the `cookie` template. Then, clone the new instance and run `make init` to initialize the project.
 
 You can use `make dev` to start a development server, `make build` to build files into `dist/`, and `make build-prod` to build a production site (with analytics) into `dist/`
 
