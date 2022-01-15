@@ -1,34 +1,33 @@
 {# Wrapper template #}
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="robots" content="noindex" />
-        <meta name="viewport" content="width=device-width" />
-        <title>{{ config.hed }} Michigan Daily</title>
-        <link rel="stylesheet" href="./css/base.scss" type="text/css" media="all">
-        <script type="text/javascript">
-            window.config = {{ config | dump | safe }}
-        </script>
-    </head>
-    <body>
-        <strong>Embed Instructions</strong>
-        <ol>
-            <li>
-                Copy the URL of the raw visual:
-                <input type="text" value="" id="url-input" readonly="readonly">
-                <button id="copy-url-button">Copy</button>
-            </li>
-            <li>Paste the URL into a Pym.js Embed Block on a Wordpress post</li>
-        </ol>
-        <a href="./graphic/index.html" target="_blank"><button>View Raw</button></a>
-        <button id="desktop-preview">Desktop Preview</button>
-        <button id="large-mobile-preview">Large Phone Preview</button>
-        <button id="small-mobile-preview">Small Phone Preview</button>
-        <br>
-        <br>
-        <div id="graphic">
-        </div>
-        <script src="./js/index.js" charset="utf-8"></script>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{{ config.hed }} Michigan Daily</title>
+    <link rel="stylesheet" href="./css/base.scss" type="text/css" media="all" />
+    <script type="text/javascript">
+      window.config = {{ config | dump | safe }}
+    </script>
+  </head>
+  <body>
+    <strong>Embed Instructions</strong>
+    <ol>
+      <li>
+        Copy the URL of the raw visual:
+        <input type="text" value="" id="url-input" readonly="readonly" />
+        <button id="copy-url-button">Copy</button>
+      </li>
+      <li>Paste the URL into a Pym.js Embed Block on a Wordpress post</li>
+    </ol>
+    <a href="./graphic/index.html" target="_blank"><button>View Raw</button></a>
+    <button id="desktop-preview">Desktop Preview</button>
+    <button id="large-mobile-preview">Large Phone Preview</button>
+    <button id="small-mobile-preview">Small Phone Preview</button>
+    <br />
+    <br />
+    <div id="graphic"></div>
+    <script type="module" src="./js/index.js" charset="utf-8"></script>
+  </body>
 </html>

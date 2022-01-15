@@ -1,28 +1,9 @@
-.PHONY: dev build gh-pages build-prod gdoc gsheet
-
-build-prod: export NODE_ENV = production
-build-prod: build
-
 init:
 	yarn install
 	rm -rf dist/
 	git worktree add --detach dist
 	(cd dist; git checkout --orphan gh-pages)
 	(cd dist; git reset --hard)
-
-dev:
-	yarn run dev
-
-gdoc:
-	yarn sink gdoc
-
-gsheet:
-	yarn sink gsheet
-
-build:
-	rm -rf build/*
-	rm -rf dist/*
-	yarn run build
 
 gh-pages: SITE = $(shell python -c "import json; print(json.load(open('config.json'))['deployment']);")
 gh-pages: REPO = $(shell basename -s .git `git remote get-url origin`)

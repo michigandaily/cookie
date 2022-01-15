@@ -3,11 +3,8 @@
   "dek": "This is a short description",
   "byline": "Firstname Lastname",
   "source": "Source: This is the source",
-
   "deployment": "https://datagraphics.michigandaily.com",
-
   "ga_id": "UA-168080597-1",
-
   "render": {
     "srcDir": "./src/",
     "buildDir": "./build/"
@@ -19,9 +16,9 @@
       "auth": "./auth.json"
     },
     {
-      "id": "",
-      "sheetId": "0",
-      "output": "",
+      "id": "1CvGwXX3-q9-TyrcSJHG2sfxsxeoQaRSC38xlHUX6Lfc",
+      "sheetId": "362232551",
+      "output": "src/graphic/data/data.csv",
       "auth": "./auth.json"
     }
   ]
