@@ -12,7 +12,7 @@
     },
     {
       "id": "",
-      "sheetId": "",
+      "sheetId": "0",
       "output": "",
       "auth": "./auth.json"
     }

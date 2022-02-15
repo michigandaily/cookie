@@ -18,9 +18,9 @@ It has several useful features:
 
 Click the green "Use this template" button to create a new instance of the `cookie` template. Then, clone the new instance and run `make init` to initialize the project.
 
-You can use `yarn dev` to start a development server, `yarn build` to build files into `dist/`, and `yarn build:prod` to build a production site (with analytics) into `dist/`
+You can use `yarn dev` to start a development server and `yarn build` to build production-ready files into `dist/`.
 
-Edit the files in `src/`. To build graphics, you should only be editing files within the `src/graphic/` directory. You can write any markup in `src/graphic/index.html`, and Javascript in `src/graphic/js/graphic.js`, and any styles in `src/graphic/css/graphic.scss`.
+Edit the files in `src/`. To build graphics, you should only be editing files within the `src/graphic/` directory. You can write any markup in `src/graphic/index.html`, and JavaScript in `src/graphic/js/graphic.js`, and any styles in `src/graphic/css/graphic.scss`.
 
 There are some SCSS variables available to you:
 
