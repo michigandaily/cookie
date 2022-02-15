@@ -18,7 +18,7 @@ It has several useful features:
 
 Click the green "Use this template" button to create a new instance of the `cookie` template. Then, clone the new instance and run `make init` to initialize the project.
 
-You can use `yarn dev` to start a development server and `yarn build` to build production-ready files into `dist/`.
+You can use `yarn start` to start a development server and `yarn build` to build production-ready files into `dist/`.
 
 Edit the files in `src/`. To build graphics, you should only be editing files within the `src/graphic/` directory. You can write any markup in `src/graphic/index.html`, and JavaScript in `src/graphic/js/graphic.js`, and any styles in `src/graphic/css/graphic.scss`.
 
@@ -52,6 +52,12 @@ Consider the following generalized URL:
 2. Put a path where the JSON-ified AML should go in `output`. This path should probably be somewhere in `src/graphic`.
 3. Run `yarn sink gdoc` to fetch the specified document.
 
+You can import a JSON file in JS like this:
+
+```js
+import copy from "../data/data.json";
+```
+
 #### Fetching a CSV from a Google Sheet
 
 Consider the following generalized URL:
@@ -62,6 +68,13 @@ Consider the following generalized URL:
 2. Put `SHEET_ID` in `sheetId`.
 3. Put a path where the CSV should go in `output`. This path should probably be somewhere in `src/graphic`.
 4. Run `yarn sink gsheet` to fetch the specified sheet.
+
+You can import a CSV file in JS like this:
+
+```js
+import csvfile from "url:../data/data.csv";
+// the "url:" prefix is specific to Parcel 2.
+```
 
 ## Deploying to GitHub Pages
 
