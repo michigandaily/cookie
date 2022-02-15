@@ -7,21 +7,6 @@
     <meta name="viewport" content="width=device-width" />
     <title>{{ config.hed }}</title>
     <link rel="stylesheet" href="./css/main.scss" type="text/css" media="all" />
-    {% if env == "production" %} {% if config.ga_id %}
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id={{ config.ga_id }}"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "{{ config.ga_id }}");
-    </script>
-    {% endif %} {% endif %}
   </head>
 
   <body>
