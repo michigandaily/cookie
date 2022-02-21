@@ -1,6 +1,6 @@
 // JS for your graphic
 import pym from "pym.js";
-import * as d3 from "d3";
+// import * as d3 from "d3";
 
 const draw = () => {
   // step 1: access data
@@ -17,4 +17,5 @@ window.onresize = () => { };
 window.onload = () => {
   const pymChild = new pym.Child({ polling: 500 });
   pymChild.sendHeight();
+  draw();
 };

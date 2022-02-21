@@ -1,4 +1,4 @@
-# Cookie
+# cookie
 
 > The bite-sized daily graphics starter.
 
@@ -6,21 +6,21 @@ This template repository is designed to help The Michigan Daily data team quickl
 
 It has several useful features:
 
-- [X] MicroCMS with ArchieML
-- [X] Bundling with Parcel
-- [X] D3v7 as a dependency by default
-- [X] Easy deploy to GitHub Pages
-- [X] Preview screen with embed URL
-- [X] Data ingest from Google Sheets
+- [x] MicroCMS with ArchieML
+- [x] Bundling with Parcel
+- [x] D3v7 as a dependency by default
+- [x] Easy deploy to GitHub Pages
+- [x] Preview screen with embed URL
+- [x] Data ingest from Google Sheets
 - [ ] Easy deploy to S3 bucket
 
 ## Using this template
 
 Click the green "Use this template" button to create a new instance of the `cookie` template. Then, clone the new instance and run `make init` to initialize the project.
 
-You can use `make dev` to start a development server, `make build` to build files into `dist/`, and `make build-prod` to build a production site (with analytics) into `dist/`
+You can use `yarn start` to start a development server and `yarn build` to build production-ready files into `dist/`.
 
-Edit the files in `src/`. To build graphics, you should only be editing files within the `src/graphic/` directory. You can write any markup in `src/graphic/index.html`, and Javascript in `src/graphic/js/graphic.js`, and any styles in `src/graphic/css/graphic.scss`.
+Edit the files in `src/`. To build graphics, you should only be editing files within the `src/graphic/` directory. You can write any markup in `src/graphic/index.html`, and JavaScript in `src/graphic/js/graphic.js`, and any styles in `src/graphic/css/graphic.scss`.
 
 There are some SCSS variables available to you:
 
@@ -50,7 +50,13 @@ Consider the following generalized URL:
 
 1. In `config.json`, put `FILE_ID` in `id`.
 2. Put a path where the JSON-ified AML should go in `output`. This path should probably be somewhere in `src/graphic`.
-3. Run `make gdoc` to fetch the specified document.
+3. Run `yarn sink gdoc` to fetch the specified document.
+
+You can import a JSON file in JS like this:
+
+```js
+import copy from "../data/data.json";
+```
 
 #### Fetching a CSV from a Google Sheet
 
@@ -61,7 +67,14 @@ Consider the following generalized URL:
 1. In `config.json`, put `FILE_ID` in `id`.
 2. Put `SHEET_ID` in `sheetId`.
 3. Put a path where the CSV should go in `output`. This path should probably be somewhere in `src/graphic`.
-4. Run `make gsheet` to fetch the specified sheet.
+4. Run `yarn sink gsheet` to fetch the specified sheet.
+
+You can import a CSV file in JS like this:
+
+```js
+import csvfile from "url:../data/data.csv";
+// the "url:" prefix is specific to Parcel 2.
+```
 
 ## Deploying to GitHub Pages
 

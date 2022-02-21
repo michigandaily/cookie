@@ -3,10 +3,10 @@ import pym from "pym.js";
 const $ = selector => document.querySelector(selector);
 
 const setQueryParams = params => {
-  history.replaceState(null, window.title, `?${params.toString()}`);
+  window.history.replaceState(null, window.title, `?${params.toString()}`);
 };
 
-const getQueryParams = () => new URLSearchParams(location.search.slice(1));
+const getQueryParams = () => new URLSearchParams(window.location.search.slice(1));
 
 const setWidth = width => {
   $("#graphic").style.width = `${width}px`;
@@ -27,7 +27,7 @@ function debounce(func, timeout = 300) {
 }
 
 window.onload = () => {
-  console.log("The Michigan Daily graphics preview");
+  // eslint-disable-next-line no-new
   new pym.Parent("graphic", "./graphic/index.html", {});
 
   // Set the width on load if exists
@@ -38,7 +38,7 @@ window.onload = () => {
 
   const resizeObserver = new ResizeObserver(
     debounce(entries => {
-      const width = entries[0].contentRect.width;
+      const { width } = entries[0].contentRect;
       setWidth(width);
     })
   );

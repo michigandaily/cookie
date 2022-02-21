@@ -3,15 +3,7 @@
   "dek": "This is a short description",
   "byline": "Firstname Lastname",
   "source": "Source: This is the source",
-
   "deployment": "https://datagraphics.michigandaily.com",
-
-  "ga_id": "UA-168080597-1",
-
-  "render": {
-    "srcDir": "./src/",
-    "buildDir": "./build/"
-  },
   "fetch": [
     {
       "id": "",
