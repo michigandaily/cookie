@@ -6,6 +6,7 @@
   "author": "Naitian Zhou",
   "license": "MIT",
   "scripts": {
+    "prepare": "husky install",
     "start": "parcel src/index.html src/graphic/index.html",
     "build": "parcel build --no-scope-hoist src/index.html src/graphic/index.html"
   },
@@ -15,10 +16,13 @@
   },
   "devDependencies": {
     "@michigandaily/parcel-transformer-nunjucks": "https://github.com/MichiganDaily/parcel-transformer-nunjucks",
-    "@parcel/transformer-sass": "^2.3.1",
-    "eslint": "^8.6.0",
-    "eslint-config-prettier": "^8.3.0",
-    "parcel": "^2.3.1",
+    "@parcel/transformer-sass": "^2.3.2",
+    "eslint": "^8.9.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.4.0",
+    "eslint-plugin-import": "^2.25.4",
+    "husky": "^7.0.4",
+    "parcel": "^2.3.2",
     "sink": "https://github.com/MichiganDaily/sink"
   },
   "browserslist": [
