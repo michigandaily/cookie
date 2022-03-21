@@ -5,7 +5,7 @@ init:
 	(cd dist; git checkout --orphan gh-pages)
 	(cd dist; git reset --hard)
 
-gh-pages: SITE = $(shell python -c "import json; print(json.load(open('config.json'))['deployment']);")
+gh-pages: SITE = $(shell python3 -c "import json; print(json.load(open('config.json'))['deployment']);")
 gh-pages: REPO = $(shell basename -s .git `git remote get-url origin`)
 gh-pages: PAGES = "https://github.com/MichiganDaily/$(REPO)/settings/pages"
 gh-pages:
