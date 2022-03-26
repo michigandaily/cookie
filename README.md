@@ -6,7 +6,7 @@ This template repository is designed to help The Michigan Daily data team quickl
 
 It has several useful features:
 
-- [x] MicroCMS with ArchieML
+- [x] MicroCMS with [ArchieML](http://archieml.org/)
 - [x] Bundling with Parcel
 - [x] D3v7 as a dependency by default
 - [x] Easy deploy to GitHub Pages
@@ -50,13 +50,7 @@ Consider the following generalized URL:
 
 1. In `config.json`, put `FILE_ID` in `id`.
 2. Put a path where the JSON-ified AML should go in `output`. This path should probably be somewhere in `src/graphic`.
-3. Run `yarn sink gdoc` to fetch the specified document.
-
-You can import a JSON file in JS like this:
-
-```js
-import copy from "../data/data.json";
-```
+3. Run `yarn run sink gdoc` to fetch the specified document.
 
 #### Fetching a CSV from a Google Sheet
 
@@ -67,14 +61,7 @@ Consider the following generalized URL:
 1. In `config.json`, put `FILE_ID` in `id`.
 2. Put `SHEET_ID` in `sheetId`.
 3. Put a path where the CSV should go in `output`. This path should probably be somewhere in `src/graphic`.
-4. Run `yarn sink gsheet` to fetch the specified sheet.
-
-You can import a CSV file in JS like this:
-
-```js
-import csvfile from "url:../data/data.csv";
-// the "url:" prefix is specific to Parcel 2.
-```
+4. Run `yarn run sink gsheet` to fetch the specified sheet.
 
 ## Deploying to GitHub Pages
 
