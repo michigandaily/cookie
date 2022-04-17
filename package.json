@@ -7,8 +7,9 @@
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
-    "start": "parcel src/index.html src/graphic/index.html",
-    "build": "parcel build --no-scope-hoist src/index.html src/graphic/index.html"
+    "clean": "rm -rf dist/* && rm -rf .parcel-cache",
+    "start": "yarn clean && parcel src/index.html src/graphic/index.html",
+    "build": "yarn clean && parcel build --no-scope-hoist src/index.html src/graphic/index.html"
   },
   "dependencies": {
     "d3": "^7.3.0",

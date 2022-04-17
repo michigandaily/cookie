@@ -9,7 +9,7 @@ gh-pages: SITE = $(shell python3 -c "import json; print(json.load(open('config.j
 gh-pages: REPO = $(shell basename -s .git `git remote get-url origin`)
 gh-pages: PAGES = "https://github.com/MichiganDaily/$(REPO)/settings/pages"
 gh-pages:
-	rm -rf dist/*
+	yarn clean
 	yarn run parcel build --no-scope-hoist src/index.html --public-url $(SITE)/$(REPO)
 	(cd dist; git add --all)
 	(cd dist; git commit -m "Build output as of $(shell git log '--format=format:%H' main -1)" || echo "No changes to commit.")
