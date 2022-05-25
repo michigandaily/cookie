@@ -24,14 +24,14 @@
   },
   "devDependencies": {
     "@michigandaily/parcel-transformer-nunjucks": "https://github.com/MichiganDaily/parcel-transformer-nunjucks",
-    "@parcel/transformer-raw": "^2.4.1",
-    "@parcel/transformer-sass": "^2.4.1",
+    "@parcel/transformer-raw": "~2.6.0",
+    "@parcel/transformer-sass": "~2.6.0",
     "eslint": "^8.13.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "husky": "^7.0.4",
-    "parcel": "^2.4.1",
+    "parcel": "~2.6.0",
     "sink": "https://github.com/MichiganDaily/sink"
   },
   "browserslist": [
