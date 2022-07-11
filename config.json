@@ -2,7 +2,8 @@
   "hed": "Headline",
   "dek": "This is a short description",
   "byline": "Firstname Lastname",
-  "source": "Source: This is the source",
+  "source": "This is the source",
+  "note": "This is a note",
   "deployment": "https://datagraphics.michigandaily.com",
   "fetch": [
     {

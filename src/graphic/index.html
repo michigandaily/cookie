@@ -13,7 +13,10 @@
     <h1 class="figure__title">{{ config.hed }}</h1>
     <h2 class="figure__caption">{{ config.dek }}</h2>
     <figure></figure>
-    <div class="figure__source">{{ config.source }}</div>
+    {% if config.note %}
+    <div class="figure__note">Note: {{ config.note }}</div>
+    {% endif %}
+    <div class="figure__source">Source: {{ config.source }}</div>
     <div class="figure__byline">
       Graphic by {{ config.byline }} / The Michigan Daily
     </div>
