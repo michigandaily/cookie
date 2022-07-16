@@ -2,6 +2,7 @@
 build/
 dist/
 auth.json
+*.ai
 
 # Logs
 logs
