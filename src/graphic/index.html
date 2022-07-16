@@ -12,7 +12,9 @@
   <body>
     <h1 class="figure__title">{{ config.hed }}</h1>
     <h2 class="figure__caption">{{ config.dek }}</h2>
-    <figure></figure>
+    <figure>
+      {% include "src/graphic/ai2html-output/" + config.illustrator_output_filename ignore missing %}
+    </figure>
     {% if config.note %}
     <div class="figure__note">Note: {{ config.note }}</div>
     {% endif %}

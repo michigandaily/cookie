@@ -12,6 +12,7 @@ It has several useful features:
 - [x] Easy deploy to GitHub Pages
 - [x] Preview screen with embed URL
 - [x] Data ingest from Google Sheets
+- [x] Easy include of [ai2html](http://ai2html.org/) output
 - [ ] Easy deploy to S3 bucket
 
 ## Using this template
@@ -62,6 +63,14 @@ Consider the following generalized URL:
 2. Put `SHEET_ID` in `sheetId`.
 3. Put a path where the CSV should go in `output`. This path should probably be somewhere in `src/graphic`.
 4. Run `yarn run sink gsheet` to fetch the specified sheet.
+
+### Including `ai2html` output
+
+1. Use our Adobe Illustrator [template](https://drive.google.com/file/d/1TN1c2nDiyhy91YwucmvwxFhdlnTAq0C4/view?usp=sharing) to create a graphic.
+2. Save the instance to the root of this repository.
+3. Set the red and bold `filename` value under the `ai2html-text` section to the name of the instance file name.
+4. Generate the ai2html output. It should be in `src/graphic/ai2html-output`.
+5. In `config.json`, set `illustrator_output_filename` to the HTML output file.
 
 ## Deploying to GitHub Pages
 

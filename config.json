@@ -5,6 +5,7 @@
   "source": "This is the source",
   "note": "This is a note",
   "deployment": "https://datagraphics.michigandaily.com",
+  "illustrator_output_filename": "output.html",
   "fetch": [
     {
       "id": "",
