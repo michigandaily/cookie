@@ -76,4 +76,4 @@ Consider the following generalized URL:
 
 1. Run `make gh-pages`
 2. Go to [`Settings > Pages`](../../settings/pages) and check the **Enforce HTTPS** option. All of our sites should enforce https, so please make sure to double check this!
-3. Your raw graphic will be accessible at `https://datagraphics.michigandaily.com/<repository-name>/graphic/index.html`
+3. Your raw graphic will be accessible at `https://michigandaily.github.io/<repository-name>/graphic/index.html`
