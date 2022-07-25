@@ -3,19 +3,17 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    "airbnb-base",
-    "prettier",
-  ],
+  extends: ["eslint:recommended", "prettier"],
+  plugins: ["prettier"],
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
   },
   rules: {
-    "quotes": [
+    quotes: [
       "error",
       "double",
-      { "avoidEscape": true, "allowTemplateLiterals": false }
-    ]
+      { avoidEscape: true, allowTemplateLiterals: false },
+    ],
   },
 };

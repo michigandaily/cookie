@@ -27,7 +27,6 @@ function debounce(func, timeout = 300) {
 }
 
 window.onload = () => {
-  // eslint-disable-next-line no-new
   new pym.Parent("graphic", "./graphic/index.html", {});
 
   // Set the width on load if exists
