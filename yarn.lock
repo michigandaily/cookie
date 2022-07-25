@@ -148,15 +148,13 @@
   resolved "https://registry.yarnpkg.com/@lmdb/lmdb-win32-x64/-/lmdb-win32-x64-2.5.2.tgz#28f643fbc0bec30b07fbe95b137879b6b4d1c9c5"
   integrity sha512-zrBczSbXKxEyK2ijtbRdICDygRqWSRPpZMN5dD1T8VMEW5RIhIbwFWw2phDRXuBQdVDpSjalCIUMWMV2h3JaZA==
 
-"@michigandaily/parcel-transformer-nunjucks@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@michigandaily/parcel-transformer-nunjucks/-/parcel-transformer-nunjucks-2.1.0.tgz#6f0c9f4bc86f6b3b7896be6bb11f83b01e9a56af"
-  integrity sha512-Ab/hy8lBfqI/TewmbPFhES4P8hs3RHbnx2k5YeGzAjqt/W69zyeR+0gDSh7cr9VU5B8OWt9BBlpIdNafwJFRZA==
+"@michigandaily/parcel-transformer-nunjucks@https://github.com/MichiganDaily/parcel-transformer-nunjucks.git#2.1.0":
+  version "1.0.0"
+  resolved "https://github.com/MichiganDaily/parcel-transformer-nunjucks.git#6ee9de047265e5f0e00dacee0b698e6afc41ea60"
   dependencies:
-    "@parcel/core" "~2.6.0"
-    "@parcel/plugin" "~2.6.0"
+    "@parcel/plugin" "^2.3.2"
     nunjucks "^3.2.3"
-    parcel "~2.6.0"
+    parcel "^2.3.2"
 
 "@mischnic/json-sourcemap@^0.1.0":
   version "0.1.0"
@@ -268,7 +266,7 @@
     "@parcel/transformer-react-refresh-wrap" "2.6.2"
     "@parcel/transformer-svg" "2.6.2"
 
-"@parcel/core@2.6.2", "@parcel/core@~2.6.0":
+"@parcel/core@2.6.2":
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/@parcel/core/-/core-2.6.2.tgz#c46d26e2f47967d80f08484f20d31fee7b90e888"
   integrity sha512-JlKS3Ux0ngmdooSBbzQLShHJdsapF9E7TGMo1hFaHRquZip/DaqzvysYrgMJlDuCoLArciq5ei7ZKzGeK9zexA==
@@ -556,7 +554,7 @@
     "@parcel/utils" "2.6.2"
     posthtml "^0.16.4"
 
-"@parcel/plugin@2.6.2", "@parcel/plugin@~2.6.0":
+"@parcel/plugin@2.6.2", "@parcel/plugin@^2.3.2":
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/@parcel/plugin/-/plugin-2.6.2.tgz#d4c8cc558e962e4dfb7154a7f0a023f6abad07ac"
   integrity sha512-wbbWsM23Pr+8xtLSvf+UopXdVYlpKCCx6PuuZaZcKo+9IcDCWoGXD4M8Kkz14qBmkFn5uM00mULUqmVdSibB2w==
@@ -2595,7 +2593,7 @@ p-try@^1.0.0:
   resolved "https://registry.yarnpkg.com/p-try/-/p-try-1.0.0.tgz#cbc79cdbaf8fd4228e13f621f2b1a237c1b207b3"
   integrity sha512-U1etNYuMJoIz3ZXSrrySFjsXQTWOx2/jdi86L+2pRvph/qMKL6sbcCYdH23fqsbm8TH2Gn0OybpT4eSFlCVHww==
 
-parcel@~2.6.0:
+parcel@^2.3.2, parcel@~2.6.0:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/parcel/-/parcel-2.6.2.tgz#4585208880f42b24935c7d3ad167dcd42f8174eb"
   integrity sha512-q6hrD3rm9M4S/VBVTcOs3pl55cnRwWfco7n8hZoAqnInWjWB+Khu92LRBMerMBTdE15Y+lJhWrXNdimDYstfhQ==
