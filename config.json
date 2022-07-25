@@ -4,7 +4,7 @@
   "byline": "Firstname Lastname",
   "source": "This is the source",
   "note": "This is a note",
-  "deployment": "https://datagraphics.michigandaily.com",
+  "deployment": "https://michigandaily.github.io",
   "illustrator_output_filename": "output.html",
   "fetch": [
     {

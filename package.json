@@ -23,7 +23,7 @@
     "pym.js": "^1.3.2"
   },
   "devDependencies": {
-    "@michigandaily/parcel-transformer-nunjucks": "https://github.com/MichiganDaily/parcel-transformer-nunjucks",
+    "@michigandaily/parcel-transformer-nunjucks": "^2.1.0",
     "@parcel/transformer-raw": "~2.6.0",
     "@parcel/transformer-sass": "~2.6.0",
     "eslint": "^8.13.0",
