@@ -1,14 +1,15 @@
 import pym from "pym.js";
 
-const $ = selector => document.querySelector(selector);
+const $ = (selector) => document.querySelector(selector);
 
-const setQueryParams = params => {
+const setQueryParams = (params) => {
   window.history.replaceState(null, window.title, `?${params.toString()}`);
 };
 
-const getQueryParams = () => new URLSearchParams(window.location.search.slice(1));
+const getQueryParams = () =>
+  new URLSearchParams(window.location.search.slice(1));
 
-const setWidth = width => {
+const setWidth = (width) => {
   $("#graphic").style.width = `${width}px`;
   const params = getQueryParams();
   params.set("width", width);
@@ -36,19 +37,27 @@ window.onload = () => {
   }
 
   const resizeObserver = new ResizeObserver(
-    debounce(entries => {
+    debounce((entries) => {
       const { width } = entries[0].contentRect;
       setWidth(width);
     })
   );
   resizeObserver.observe($("#graphic"));
 
-  $("#desktop-preview").addEventListener("click", () => { setWidth(780); });
-  $("#small-mobile-preview").addEventListener("click", () => { setWidth(288); });
-  $("#large-mobile-preview").addEventListener("click", () => { setWidth(338); });
+  $("#desktop-preview").addEventListener("click", () => {
+    setWidth(780);
+  });
+  $("#small-mobile-preview").addEventListener("click", () => {
+    setWidth(288);
+  });
+  $("#large-mobile-preview").addEventListener("click", () => {
+    setWidth(338);
+  });
 
   const urlInput = $("#url-input");
-  urlInput.value = `${window.location.origin + window.location.pathname}graphic/index.html`;
+  urlInput.value = `${
+    window.location.origin + window.location.pathname
+  }graphic/index.html`;
 
   const copyButton = $("#copy-url-button");
 

@@ -10,9 +10,9 @@ const draw = () => {
   // step 5: draw data
   // step 6: draw peripherals
   // step 7: set up interactions
-}
+};
 
-window.onresize = () => { };
+window.onresize = () => {};
 
 window.onload = () => {
   const pymChild = new pym.Child({ polling: 500 });
