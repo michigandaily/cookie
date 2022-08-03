@@ -15,7 +15,7 @@
   "scripts": {
     "prepare": "husky install",
     "clean": "rm -rf dist/* && rm -rf .parcel-cache",
-    "start": "yarn clean && parcel src/index.html src/graphic/index.html",
+    "dev": "yarn clean && parcel src/index.html src/graphic/index.html",
     "build": "yarn clean && parcel build --no-scope-hoist src/index.html src/graphic/index.html"
   },
   "dependencies": {
