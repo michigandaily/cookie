@@ -31,7 +31,7 @@ There are some SCSS variables available to you:
 
 ### Fetching from Google Drive
 
-If you haven't already, download our service account credential file (`.daily-google-services.json`) and put it in the home directory of your computer.
+If you haven't already, download our service account credentials file (`.daily-google-services.json`) and put it in the home directory of your computer.
 
 The credentials file will have a `client_email` property. Share your Google Doc or Google Sheet with the value of this property in order to allow permission to fetch.
 
