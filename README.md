@@ -19,7 +19,7 @@ It has several useful features:
 
 Click the green "Use this template" button to create a new instance of the `cookie` template. Then, clone the new instance and run `make init` to initialize the project.
 
-You can use `yarn start` to start a development server and `yarn build` to build production-ready files into `dist/`.
+You can use `yarn dev` to start a development server and `yarn build` to build production-ready files into `dist/`.
 
 Edit the files in `src/`. To build graphics, you should only be editing files within the `src/graphic/` directory. You can write any markup in `src/graphic/index.html`, and JavaScript in `src/graphic/js/graphic.js`, and any styles in `src/graphic/css/graphic.scss`.
 
@@ -31,7 +31,7 @@ There are some SCSS variables available to you:
 
 ### Fetching from Google Drive
 
-Download our service account credentials file (`auth.json`) and put it in the root of this repository.
+If you haven't already, download our service account credentials file (`.daily-google-services.json`) and put it in the home directory of your computer.
 
 The credentials file will have a `client_email` property. Share your Google Doc or Google Sheet with the value of this property in order to allow permission to fetch.
 
