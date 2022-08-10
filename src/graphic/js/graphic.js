@@ -17,5 +17,14 @@ window.onresize = () => {};
 window.onload = () => {
   const pymChild = new pym.Child({ polling: 500 });
   pymChild.sendHeight();
+  pymChild.onMessage("download", async () => {
+    const { toPng } = await import("html-to-image");
+    const imgurl = await toPng(document.body);
+    const a = document.createElement("a");
+    a.href = imgurl;
+    a.download = `cookie-graphic-${new Date().toISOString()}.png`;
+    a.click();
+    a.remove();
+  });
   draw();
 };
