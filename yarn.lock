@@ -153,9 +153,9 @@
   resolved "https://registry.yarnpkg.com/@lmdb/lmdb-win32-x64/-/lmdb-win32-x64-2.5.2.tgz#28f643fbc0bec30b07fbe95b137879b6b4d1c9c5"
   integrity sha512-zrBczSbXKxEyK2ijtbRdICDygRqWSRPpZMN5dD1T8VMEW5RIhIbwFWw2phDRXuBQdVDpSjalCIUMWMV2h3JaZA==
 
-"@michigandaily/parcel-transformer-nunjucks@https://github.com/MichiganDaily/parcel-transformer-nunjucks.git":
+"@michigandaily/parcel-transformer-nunjucks@michigandaily/parcel-transformer-nunjucks#filepath":
   version "2.2.0"
-  resolved "https://github.com/MichiganDaily/parcel-transformer-nunjucks.git#18874c5bc7edffa8cd4d05db98f07537010f8974"
+  resolved "https://codeload.github.com/michigandaily/parcel-transformer-nunjucks/tar.gz/4133be81cad95cf214b1cd401f0e92edb6f8229a"
   dependencies:
     "@parcel/core" "~2.6.0"
     "@parcel/plugin" "~2.6.0"

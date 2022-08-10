@@ -1,0 +1,33 @@
+{# Template #}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{{ config.entries[file].hed }}</title>
+
+    {% block styles %}
+    <link rel="stylesheet" href="./css/main.scss" type="text/css" media="all" />
+    {% endblock %}
+  </head>
+
+  <body>
+    <h1 class="figure__title">{{ config.entries[file].hed }}</h1>
+    <h2 class="figure__caption">{{ config.entries[file].dek }}</h2>
+    <figure>
+      {% include "src/graphic/ai2html-output/" + config.entries[file].illustrator_output_filename ignore missing %}
+    </figure>
+    {% if config.entries[file].note %}
+    <div class="figure__note">Note: {{ config.entries[file].note }}</div>
+    {% endif %}
+    <div class="figure__source">Source: {{ config.entries[file].source }}</div>
+    <div class="figure__byline">
+      Graphic by {{ config.entries[file].byline }} / The Michigan Daily
+    </div>
+
+    {% block scripts %}
+    <script type="module" src="./js/graphic.js" charset="utf-8"></script>
+    {% endblock %}
+  </body>
+</html>

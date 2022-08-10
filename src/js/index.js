@@ -1,14 +1,16 @@
 import pym from "pym.js";
 
-const $ = selector => document.querySelector(selector);
+const { history, title, location } = window;
 
-const setQueryParams = params => {
-  window.history.replaceState(null, window.title, `?${params.toString()}`);
+const $ = (selector) => document.querySelector(selector);
+
+const setQueryParams = (params) => {
+  history.replaceState(null, title, `?${params.toString()}`);
 };
 
-const getQueryParams = () => new URLSearchParams(window.location.search.slice(1));
+const getQueryParams = () => new URLSearchParams(location.search.slice(1));
 
-const setWidth = width => {
+const setWidth = (width) => {
   $("#graphic").style.width = `${width}px`;
   const params = getQueryParams();
   params.set("width", width);
@@ -26,30 +28,65 @@ function debounce(func, timeout = 300) {
   };
 }
 
-window.onload = () => {
-  // eslint-disable-next-line no-new
-  new pym.Parent("graphic", "./graphic/index.html", {});
-
-  // Set the width on load if exists
+window.onload = async () => {
   const params = getQueryParams();
+
+  const entry = params.has("entry") ? params.get("entry") : "index.html";
+  let parent = new pym.Parent("graphic", `./graphic/${entry}`, {});
+
+  const urlInput = $("#url-input");
+  urlInput.value = `${location.origin + location.pathname}graphic/${entry}`;
+  urlInput.size = urlInput.value.length;
+
+  const { entries } = await import("../../config.json");
+  const entrypointSelect = $("#entrypoint-select");
+
+  Object.keys(entries).forEach((key) => {
+    const option = document.createElement("option");
+    option.value = key;
+    option.textContent = key;
+    if (key === entry) {
+      option.selected = true;
+    }
+    entrypointSelect.appendChild(option);
+  });
+
+  entrypointSelect.disabled = Object.keys(entries).length <= 1;
+  entrypointSelect.addEventListener("change", (e) => {
+    urlInput.value = `${location.origin + location.pathname}graphic/${
+      e.target.value
+    }`;
+    urlInput.size = urlInput.value.length;
+
+    const qps = getQueryParams();
+    qps.set("entry", e.target.value);
+    setQueryParams(qps);
+
+    parent.remove();
+    parent = new pym.Parent("graphic", `./graphic/${e.target.value}`, {});
+  });
+
   if (params.has("width")) {
     setWidth(params.get("width"));
   }
 
   const resizeObserver = new ResizeObserver(
-    debounce(entries => {
-      const { width } = entries[0].contentRect;
+    debounce((e) => {
+      const { width } = e[0].contentRect;
       setWidth(width);
     })
   );
   resizeObserver.observe($("#graphic"));
 
-  $("#desktop-preview").addEventListener("click", () => { setWidth(780); });
-  $("#small-mobile-preview").addEventListener("click", () => { setWidth(288); });
-  $("#large-mobile-preview").addEventListener("click", () => { setWidth(338); });
-
-  const urlInput = $("#url-input");
-  urlInput.value = `${window.location.origin + window.location.pathname}graphic/index.html`;
+  $("#desktop-preview").addEventListener("click", () => {
+    setWidth(780);
+  });
+  $("#small-mobile-preview").addEventListener("click", () => {
+    setWidth(288);
+  });
+  $("#large-mobile-preview").addEventListener("click", () => {
+    setWidth(338);
+  });
 
   const copyButton = $("#copy-url-button");
 
