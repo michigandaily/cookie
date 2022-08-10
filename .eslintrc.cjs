@@ -12,6 +12,7 @@ module.exports = {
   plugins: ["prettier"],
   rules: {
     "no-var": "error",
+    "prefer-const": "error",
     eqeqeq: "error",
     "prettier/prettier": [
       "error",
