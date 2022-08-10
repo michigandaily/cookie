@@ -13,6 +13,8 @@ module.exports = {
   rules: {
     "no-var": "error",
     "prefer-const": "error",
+    "prefer-template": "error",
+    "template-curly-spacing": "error",
     eqeqeq: "error",
     "prettier/prettier": [
       "error",
