@@ -31,14 +31,21 @@ function debounce(func, timeout = 300) {
 window.onload = async () => {
   const params = getQueryParams();
 
-  const entry = params.has("entry") ? params.get("entry") : "index.html";
+  const { entries } = await import("../../config.json");
+  let entry = params.has("entry") ? params.get("entry") : "index.html";
+
+  if (!Object.hasOwn(entries, entry)) {
+    params.delete("entry");
+    setQueryParams(params);
+    entry = "index.html";
+  }
+
   let parent = new pym.Parent("graphic", `./graphic/${entry}`, {});
 
   const urlInput = $("#url-input");
   urlInput.value = `${location.origin + location.pathname}graphic/${entry}`;
   urlInput.size = urlInput.value.length;
 
-  const { entries } = await import("../../config.json");
   const entrypointSelect = $("#entrypoint-select");
 
   Object.keys(entries).forEach((key) => {
@@ -58,9 +65,8 @@ window.onload = async () => {
     }`;
     urlInput.size = urlInput.value.length;
 
-    const qps = getQueryParams();
-    qps.set("entry", e.target.value);
-    setQueryParams(qps);
+    params.set("entry", e.target.value);
+    setQueryParams(params);
 
     parent.remove();
     parent = new pym.Parent("graphic", `./graphic/${e.target.value}`, {});
