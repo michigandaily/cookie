@@ -15,6 +15,8 @@ module.exports = {
     "prefer-const": "error",
     "prefer-template": "error",
     "template-curly-spacing": "error",
+    "prefer-arrow-callback": "error",
+    "arrow-spacing": "error",
     eqeqeq: "error",
     "prettier/prettier": [
       "error",
