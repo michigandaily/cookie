@@ -4,6 +4,8 @@ dist/
 auth.json
 .daily-google-services.json
 *.ai
+src/graphic/data
+*.csv
 
 # Logs
 logs
