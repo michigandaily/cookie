@@ -17,12 +17,13 @@ window.onresize = () => {};
 window.onload = () => {
   const pymChild = new pym.Child({ polling: 500 });
   pymChild.sendHeight();
-  pymChild.onMessage("download", async () => {
-    const { toPng } = await import("html-to-image");
-    const imgurl = await toPng(document.body);
+  pymChild.onMessage("download", async (format) => {
+    const { toSvg, toPng } = await import("html-to-image");
+    const converter = format === "svg" ? toSvg : toPng;
+    const imgurl = await converter(document.body);
     const a = document.createElement("a");
     a.href = imgurl;
-    a.download = `cookie-graphic-${new Date().toISOString()}.png`;
+    a.download = `cookie-graphic-${new Date().toISOString()}.${format}`;
     a.click();
     a.remove();
   });

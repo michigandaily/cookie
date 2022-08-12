@@ -16,15 +16,19 @@
         <input type="text" value="" id="url-input" readonly="readonly" />
         <button id="copy-url-button">Copy</button>
       </li>
-      <li>Paste the URL into a Pym.js Embed Block on a Wordpress post</li>
+      <li>Paste the URL into a Pym.js Embed Block on a WordPress post</li>
     </ol>
     <a href="./graphic/index.html" target="_blank"><button>View Raw</button></a>
-    <button id="download-image">Download as PNG</button>
-    <button id="desktop-preview">Desktop Preview</button>
-    <button id="large-mobile-preview">Large Phone Preview</button>
-    <button id="small-mobile-preview">Small Phone Preview</button>
-    <br />
-    <br />
+    <span style="margin-left: 10px; margin-right: 10px;">
+      <button id="desktop-preview">Desktop Preview</button>
+      <button id="large-mobile-preview">Large Phone Preview</button>
+      <button id="small-mobile-preview">Small Phone Preview</button>
+    </span>
+    <br/>
+    <span style="margin-top: 10px; margin-bottom: 10px; display: block;">
+      <button id="download-png">Download as PNG</button>
+      <button id="download-svg">Download as SVG</button>
+    </span>
     <div id="graphic"></div>
     <script type="module" src="./js/index.js" charset="utf-8"></script>
   </body>

@@ -69,7 +69,11 @@ window.onload = () => {
     copyButton.innerHTML = "Copied!";
   });
 
-  $("#download-image").addEventListener("click", async () => {
-    parent.sendMessage("download", null);
+  $("#download-png").addEventListener("click", () => {
+    parent.sendMessage("download", "png");
+  });
+
+  $("#download-svg").addEventListener("click", () => {
+    parent.sendMessage("download", "svg");
   });
 };
