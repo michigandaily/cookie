@@ -45,6 +45,9 @@ window.onload = async () => {
 
   let parent = new pym.Parent("graphic", `./graphic/${entry}`, {});
 
+  const viewRaw = $("#view-raw");
+  viewRaw.href = `./graphic/${entry}`;
+
   const urlInput = $("#url-input");
   urlInput.value = `${location.origin + location.pathname}graphic/${entry}`;
   urlInput.size = urlInput.value.length;
@@ -67,6 +70,8 @@ window.onload = async () => {
       e.target.value
     }`;
     urlInput.size = urlInput.value.length;
+
+    viewRaw.href = `./graphic/${e.target.value}`;
 
     params.set("entry", e.target.value);
     setQueryParams(params);
