@@ -28,7 +28,8 @@ function debounce(func, timeout = 300) {
 }
 
 window.onload = () => {
-  new pym.Parent("graphic", "./graphic/index.html", {});
+  const graphic = $("#graphic");
+  const parent = new pym.Parent("graphic", "./graphic/index.html", {});
 
   // Set the width on load if exists
   const params = getQueryParams();
@@ -42,7 +43,7 @@ window.onload = () => {
       setWidth(width);
     })
   );
-  resizeObserver.observe($("#graphic"));
+  resizeObserver.observe(graphic);
 
   $("#desktop-preview").addEventListener("click", () => {
     setWidth(780);
@@ -66,5 +67,13 @@ window.onload = () => {
     urlInput.setSelectionRange(0, urlInput.value.length);
     document.execCommand("copy");
     copyButton.innerHTML = "Copied!";
+  });
+
+  $("#download-png").addEventListener("click", () => {
+    parent.sendMessage("download", "png");
+  });
+
+  $("#download-svg").addEventListener("click", () => {
+    parent.sendMessage("download", "svg");
   });
 };
