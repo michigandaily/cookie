@@ -48,11 +48,11 @@ window.onload = () => {
   $("#desktop-preview").addEventListener("click", () => {
     setWidth(780);
   });
-  $("#small-mobile-preview").addEventListener("click", () => {
-    setWidth(288);
-  });
   $("#large-mobile-preview").addEventListener("click", () => {
     setWidth(338);
+  });
+  $("#small-mobile-preview").addEventListener("click", () => {
+    setWidth(288);
   });
 
   const urlInput = $("#url-input");
