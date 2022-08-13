@@ -10,10 +10,11 @@ It has several useful features:
 - [x] Bundling with Parcel
 - [x] D3v7 as a dependency by default
 - [x] Easy deploy to GitHub Pages
+- [ ] Easy deploy to S3 bucket
 - [x] Preview screen with embed URL
 - [x] Data ingest from Google Sheets
 - [x] Easy include of [ai2html](http://ai2html.org/) output
-- [ ] Easy deploy to S3 bucket
+- [x] Ability to develop several common graphics in one repository.
 
 ## Using this template
 
@@ -28,6 +29,8 @@ There are some SCSS variables available to you:
 - `$serif` for serif font (Lora)
 - `$sans` for sans serif font (Open Sans)
 - `$blue`, `$maize`, `$gray`, `$black`, `$white`, and `$blue-{1..5}` for colors
+
+If you want to develop another graphic in the same instance, create a new HTML file in `src/graphic` that uses the `base.html` template. Refer to `src/graphic/index.html` for how to extend the template. You'll also need to create a new entry in `config.json`.
 
 ### Fetching from Google Drive
 
