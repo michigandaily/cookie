@@ -19,10 +19,11 @@
   },
   "dependencies": {
     "d3": "^7.4.4",
+    "html-to-image": "^1.9.0",
     "pym.js": "^1.3.2"
   },
   "devDependencies": {
-    "@michigandaily/parcel-transformer-nunjucks": "michigandaily/parcel-transformer-nunjucks#filepath",
+    "@michigandaily/parcel-transformer-nunjucks": "michigandaily/parcel-transformer-nunjucks",
     "@parcel/transformer-raw": "~2.6.0",
     "@parcel/transformer-sass": "~2.6.0",
     "eslint": "8.20.0",
@@ -31,6 +32,7 @@
     "husky": "^7.0.4",
     "parcel": "~2.6.0",
     "prettier": "2.7.1",
+    "process": "^0.11.10",
     "sink": "https://github.com/MichiganDaily/sink"
   },
   "browserslist": [

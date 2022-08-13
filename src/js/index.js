@@ -29,6 +29,9 @@ function debounce(func, timeout = 300) {
 }
 
 window.onload = async () => {
+  const graphic = $("#graphic");
+
+  // Set the width on load if exists
   const params = getQueryParams();
 
   const { entries } = await import("../../config.json");
@@ -82,7 +85,7 @@ window.onload = async () => {
       setWidth(width);
     })
   );
-  resizeObserver.observe($("#graphic"));
+  resizeObserver.observe(graphic);
 
   $("#desktop-preview").addEventListener("click", () => {
     setWidth(780);
@@ -101,5 +104,13 @@ window.onload = async () => {
     urlInput.setSelectionRange(0, urlInput.value.length);
     document.execCommand("copy");
     copyButton.innerHTML = "Copied!";
+  });
+
+  $("#download-png").addEventListener("click", () => {
+    parent.sendMessage("download", "png");
+  });
+
+  $("#download-svg").addEventListener("click", () => {
+    parent.sendMessage("download", "svg");
   });
 };
