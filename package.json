@@ -1,6 +1,6 @@
 {
   "name": "cookie",
-  "version": "2.3.1",
+  "version": "2.4.0",
   "description": "Graphics template for The Michigan Daily",
   "author": {
     "name": "Naitian Zhou"
@@ -15,6 +15,7 @@
     "prepare": "husky install",
     "clean": "rm -rf dist/* && rm -rf .parcel-cache",
     "dev": "yarn clean && parcel src/index.html src/graphic/index.html",
+    "screengrab": "rm -rf img/* && node screengrab.mjs",
     "build": "yarn clean && parcel build --no-scope-hoist src/index.html src/graphic/index.html"
   },
   "dependencies": {
@@ -29,10 +30,12 @@
     "eslint": "8.20.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.2.1",
+    "find-chrome-bin": "^1.0.2",
     "husky": "^7.0.4",
     "parcel": "~2.6.0",
     "prettier": "2.7.1",
     "process": "^0.11.10",
+    "puppeteer-core": "^16.1.0",
     "sink": "https://github.com/MichiganDaily/sink"
   },
   "browserslist": [

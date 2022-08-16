@@ -1,8 +1,12 @@
 # Cookie specific
 build/
 dist/
+img/
+*.png
+*.svg
 auth.json
 .daily-google-services.json
+chrome.json
 *.ai
 src/graphic/data
 *.csv
