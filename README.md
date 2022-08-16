@@ -7,8 +7,9 @@ This template repository is designed to help The Michigan Daily data team quickl
 It has several useful features:
 
 - [x] MicroCMS with [ArchieML](http://archieml.org/)
-- [x] Bundling with Parcel
-- [x] D3v7 as a dependency by default
+- [x] Bundling with [Parcel](https://parceljs.org/)
+- [x] [D3v7](https://d3js.org/) as a dependency by default
+- [x] Templating with [Nunjucks](https://mozilla.github.io/nunjucks/)
 - [x] Easy deploy to GitHub Pages
 - [ ] Easy deploy to S3 bucket
 - [x] Preview screen with embed URL
