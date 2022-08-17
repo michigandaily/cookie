@@ -35,12 +35,12 @@ window.onload = async () => {
   const params = getQueryParams();
 
   const { entries } = await import("../../config.json");
-  let entry = params.has("entry") ? params.get("entry") : "index.html";
+  let entry = params.get("entry") ?? Object.keys(entries)[0];
 
   if (!Object.hasOwn(entries, entry)) {
     params.delete("entry");
     setQueryParams(params);
-    entry = "index.html";
+    entry = Object.keys(entries)[0];
   }
 
   let parent = new pym.Parent("graphic", `./graphic/${entry}`, {});
