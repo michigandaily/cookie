@@ -38,9 +38,8 @@ window.onload = () => {
   }
 
   const resizeObserver = new ResizeObserver(
-    debounce((entries) => {
-      const { width } = entries[0].contentRect;
-      setWidth(width);
+    debounce(([e]) => {
+      setWidth(e.contentRect.width);
     })
   );
   resizeObserver.observe(graphic);
