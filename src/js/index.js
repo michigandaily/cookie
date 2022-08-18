@@ -70,10 +70,22 @@ window.onload = () => {
   });
 
   $("#download-png").addEventListener("click", () => {
-    parent.sendMessage("download", "png");
+    parent.sendMessage(
+      "download",
+      JSON.stringify({
+        format: "png",
+        width: graphic.clientWidth,
+      })
+    );
   });
 
   $("#download-svg").addEventListener("click", () => {
-    parent.sendMessage("download", "svg");
+    parent.sendMessage(
+      "download",
+      JSON.stringify({
+        format: "svg",
+        width: graphic.clientWidth,
+      })
+    );
   });
 };
