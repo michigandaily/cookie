@@ -1,11 +1,15 @@
 {
-  "hed": "Headline",
-  "dek": "This is a short description",
-  "byline": "Firstname Lastname",
-  "source": "This is the source",
-  "note": "This is a note",
+  "entries": {
+    "index.html": {
+      "hed": "Headline",
+      "dek": "This is a short description",
+      "byline": "Firstname Lastname",
+      "source": "This is the source",
+      "note": "This is a note",
+      "illustrator_output_filename": "output.html"
+    }
+  },
   "deployment": "https://michigandaily.github.io",
-  "illustrator_output_filename": "output.html",
   "fetch": [
     {
       "id": "",
