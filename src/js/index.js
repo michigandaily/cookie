@@ -85,9 +85,8 @@ window.onload = async () => {
   }
 
   const resizeObserver = new ResizeObserver(
-    debounce((e) => {
-      const { width } = e[0].contentRect;
-      setWidth(width);
+    debounce(([e]) => {
+      setWidth(e.contentRect.width);
     })
   );
   resizeObserver.observe(graphic);
@@ -112,10 +111,22 @@ window.onload = async () => {
   });
 
   $("#download-png").addEventListener("click", () => {
-    parent.sendMessage("download", "png");
+    parent.sendMessage(
+      "download",
+      JSON.stringify({
+        format: "png",
+        width: graphic.clientWidth,
+      })
+    );
   });
 
   $("#download-svg").addEventListener("click", () => {
-    parent.sendMessage("download", "svg");
+    parent.sendMessage(
+      "download",
+      JSON.stringify({
+        format: "svg",
+        width: graphic.clientWidth,
+      })
+    );
   });
 };

@@ -20,6 +20,5 @@ window.onload = () => {
   const pymChild = new pym.Child({ polling: 500 });
   pymChild.sendHeight();
   pymChild.onMessage("download", downloadImage);
-
   draw();
 };
