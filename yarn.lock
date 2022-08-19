@@ -148,7 +148,7 @@
   resolved "https://registry.yarnpkg.com/@lmdb/lmdb-win32-x64/-/lmdb-win32-x64-2.5.2.tgz#28f643fbc0bec30b07fbe95b137879b6b4d1c9c5"
   integrity sha512-zrBczSbXKxEyK2ijtbRdICDygRqWSRPpZMN5dD1T8VMEW5RIhIbwFWw2phDRXuBQdVDpSjalCIUMWMV2h3JaZA==
 
-"@michigandaily/parcel-transformer-nunjucks@michigandaily/parcel-transformer-nunjucks":
+"@michigandaily/parcel-transformer-nunjucks@michigandaily/parcel-transformer-nunjucks#v2.2.1":
   version "2.2.0"
   resolved "https://codeload.github.com/michigandaily/parcel-transformer-nunjucks/tar.gz/c11a4b88f2994bd0905d606db6972f22119eef1a"
   dependencies:
@@ -820,9 +820,9 @@
     nullthrows "^1.1.1"
 
 "@swc/helpers@^0.4.2":
-  version "0.4.6"
-  resolved "https://registry.yarnpkg.com/@swc/helpers/-/helpers-0.4.6.tgz#574672fe0018731893b6a7b1741d336863fa09a1"
-  integrity sha512-jUMFa2/gFJOBVBnd3ZZHKRNsgqD0OQQhJMlOFR5B5stMbrUlTQoI7rXORtIGb+M/BZAU/cuI68nho4De3gXzWA==
+  version "0.4.7"
+  resolved "https://registry.yarnpkg.com/@swc/helpers/-/helpers-0.4.7.tgz#25a32e462e799a5a102eb9c241f73bbc4cb806a7"
+  integrity sha512-jJKr/2JOivCQxb5Xpli3asedRLH34QgJ3G+7gm6CoCOwt/LDDX9g67OuxvjFOiYZfngWYB66ZbjU6cUNtQdavg==
   dependencies:
     tslib "^2.4.0"
 
@@ -1008,9 +1008,9 @@ callsites@^3.0.0:
   integrity sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==
 
 caniuse-lite@^1.0.30001370:
-  version "1.0.30001375"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001375.tgz#8e73bc3d1a4c800beb39f3163bf0190d7e5d7672"
-  integrity sha512-kWIMkNzLYxSvnjy0hL8w1NOaWNr2rn39RTAVyIwcw8juu60bZDWiF1/loOYANzjtJmy6qPgNmn38ro5Pygagdw==
+  version "1.0.30001378"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001378.tgz#3d2159bf5a8f9ca093275b0d3ecc717b00f27b67"
+  integrity sha512-JVQnfoO7FK7WvU4ZkBRbPjaot4+YqxogSDosHv0Hv5mWpUESmN+UubMU6L/hGz8QlQ2aY5U0vR6MOs6j/CXpNA==
 
 chalk@^2.0.0:
   version "2.4.2"
@@ -1477,9 +1477,9 @@ ecdsa-sig-formatter@1.0.11, ecdsa-sig-formatter@^1.0.11:
     safe-buffer "^5.0.1"
 
 electron-to-chromium@^1.4.202:
-  version "1.4.218"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.218.tgz#d6b817b5454499a92c85888b42dc2ad075e4493a"
-  integrity sha512-INDylKH//YIf2w67D+IjkfVnGVrZ/D94DAU/FPPm6T4jEPbEDQvo9r2wTj0ncFdtJH8+V8BggZTaN8Rzk5wkgw==
+  version "1.4.225"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.225.tgz#3e27bdd157cbaf19768141f2e0f0f45071e52338"
+  integrity sha512-ICHvGaCIQR3P88uK8aRtx8gmejbVJyC6bB4LEC3anzBrIzdzC7aiZHY4iFfXhN4st6I7lMO0x4sgBHf/7kBvRw==
 
 entities@^2.0.0:
   version "2.2.0"
@@ -1851,9 +1851,9 @@ html-entities@^2.3.2:
   integrity sha512-DV5Ln36z34NNTDgnz0EWGBLZENelNAtkiFA4kyNOG2tDI6Mz1uSWiq1wAKdyjnJwyDiDO7Fa2SO1CTxPXL8VxA==
 
 html-to-image@^1.9.0:
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/html-to-image/-/html-to-image-1.10.0.tgz#a307e4510ca98c8f5263343952b843994f2429db"
-  integrity sha512-K2jLOu5piLa8Lwv67gmSSDBOAw3ZjD/4MdvbIlsqOzcm0+wPA3VjshJaYLKUE9N9xZaaR/kfxm1Mv0TM+nfyxw==
+  version "1.10.4"
+  resolved "https://registry.yarnpkg.com/html-to-image/-/html-to-image-1.10.4.tgz#c44f393db10d139a01eadcf94a5242e7b2e1ec9c"
+  integrity sha512-nJ9uiWCkD/egDN0F6wzbCfpjc/1ZChutABD3SgnRRwNlZpUhhCFK/dRuVAmyEFgrQFacYW5hyURRLlSdZw8cgQ==
 
 htmlnano@^2.0.0:
   version "2.0.2"
@@ -2468,9 +2468,9 @@ side-channel@^1.0.4:
     get-intrinsic "^1.0.2"
     object-inspect "^1.9.0"
 
-"sink@https://github.com/MichiganDaily/sink":
+"sink@https://github.com/MichiganDaily/sink#v1.3.0":
   version "1.2.0"
-  resolved "https://github.com/MichiganDaily/sink#2c88d0e91a3849fec69ba09a9d038c926d4fed1b"
+  resolved "https://github.com/MichiganDaily/sink#cc01a92cdaaef2a8d37a52db1ef9134307267f8f"
   dependencies:
     "@googleapis/drive" "^2.1.0"
     "@googleapis/sheets" "^0.3.0"
