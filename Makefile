@@ -10,7 +10,7 @@ gh-pages: REPO = $(shell basename -s .git `git remote get-url origin`)
 gh-pages: PAGES = "https://github.com/MichiganDaily/$(REPO)/settings/pages"
 gh-pages:
 	yarn clean
-	yarn run parcel build --no-scope-hoist src/index.html --public-url /$(REPO)
+	yarn run parcel build --no-scope-hoist src/index.html src/graphic/*.html --public-url /$(REPO)
 	(cd dist; git add --all)
 	(cd dist; git commit -m "Build output as of $(shell git log '--format=format:%H' main -1)" || echo "No changes to commit.")
 	(cd dist; git pull -s ours --no-edit origin gh-pages --allow-unrelated-histories || echo "Could not pull from origin.")
