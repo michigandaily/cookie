@@ -57,6 +57,12 @@ Consider the following generalized URL:
 2. Put a path where the JSON-ified AML should go in `output`. This path should probably be somewhere in `src/graphic`.
 3. Run `yarn run sink gdoc` to fetch the specified document.
 
+You can import a JSON file in JS like this:
+
+```js
+import copy from "../data/data.json";
+```
+
 #### Fetching a CSV from a Google Sheet
 
 Consider the following generalized URL:
@@ -67,6 +73,14 @@ Consider the following generalized URL:
 2. Put `SHEET_ID` in `sheetId`.
 3. Put a path where the CSV should go in `output`. This path should probably be somewhere in `src/graphic`.
 4. Run `yarn run sink gsheet` to fetch the specified sheet.
+
+You can import a CSV file in JS like this:
+
+```js
+import csvfile from "../data/data.csv";
+```
+
+We use the [`@michigandaily/parcel-transformer-csv`](https://github.com/MichiganDaily/parcel-transformer-csv) plugin (which relies on [`d3-dsv`](https://github.com/d3/d3-dsv)) to parse the CSV file into a usable array.
 
 ### Including `ai2html` output
 
