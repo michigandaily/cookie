@@ -35,46 +35,13 @@ If you want to develop another graphic in the same instance, create a new HTML f
 
 ### Fetching from Google Drive
 
-If you haven't already, download our service account credentials file (`.daily-google-services.json`) and put it in the home directory of your computer.
-
-The credentials file will have a `client_email` property. Share your Google Doc or Google Sheet with the value of this property in order to allow permission to fetch.
-
-Our `config.json` file contains a `fetch` property which has an array of objects as the value. Each object represents a file that will be fetched.
-
-An object must have `type`, `id`, `output`, and `auth` properties in order to query for a Google Doc. An object must also have a `sheetId` property to query for a Google Sheet.
-
-The `auth` property of each object is the name of the credentials file. Since `auth` is a property of each object instead of the entire configuration file, we are able to fetch files that come from locations that may require different permissions.
-
-You may fetch as few or as many files as you want. The following sections will guide you in filling out the `config.json` file to fetch for Google Documents, Google Sheets, and raw JSON files. In order to fetch all files (regardless of type), run `yarn run sink fetch`.
-
-#### Fetching JSON from a Google Doc
-
-Consider the following generalized URL:
-
-`https://docs.google.com/document/d/FILE_ID/edit`
-
-1. In `config.json`, put `FILE_ID` in `id`.
-2. Specify `type` as `doc`.
-3. Put a path where the JSON-ified AML should go in `output`. This path should probably be somewhere in `src/graphic`.
-4. Run `yarn run sink gdoc` to fetch the specified document.
+Refer to the [Usage](https://github.com/MichiganDaily/sink#usage) section in the `sink` README for instructions on how to set up `config.json` for fetching files from Google Drive.
 
 You can import a JSON file in JS like this:
 
 ```js
 import copy from "../data/data.json";
 ```
-
-#### Fetching a CSV from a Google Sheet
-
-Consider the following generalized URL:
-
-`https://docs.google.com/spreadsheets/d/FILE_ID/edit#gid=SHEET_ID`
-
-1. In `config.json`, put `FILE_ID` in `id`.
-2. Put `SHEET_ID` in `sheetId`.
-3. Specify `type` as `sheet`.
-4. Put a path where the CSV should go in `output`. This path should probably be somewhere in `src/graphic`.
-5. Run `yarn run sink gsheet` to fetch the specified sheet.
 
 You can import a CSV file in JS like this:
 
@@ -83,23 +50,6 @@ import csvfile from "../data/data.csv";
 ```
 
 We use the [`@michigandaily/parcel-transformer-csv`](https://github.com/MichiganDaily/parcel-transformer-csv) plugin (which relies on [`d3-dsv`](https://github.com/d3/d3-dsv)) to parse the CSV file into a usable array.
-
-#### Fetching a JSON file from Google Drive
-
-Google Drive can store raw JSON files. You can get the URL of a JSON file stored in Google Drive by clicking "Get link" in the context menu and then clicking the "Copy link" button from the popup. That will put the following generalized URL into your clipboard:
-
-`https://drive.google.com/file/d/FILE_ID/view?usp=sharing`
-
-1. In `config.json`, put `FILE_ID` in `id`.
-2. Specify `type` as `json`.
-3. Put a path where the JSON-ified AML should go in `output`. This path should probably be somewhere in `src/graphic`.
-4. Run `yarn run sink json` to fetch the specified JSON file.
-
-You can import a JSON file in JS like this:
-
-```js
-import copy from "../data/data.json";
-```
 
 ### Including `ai2html` output
 
