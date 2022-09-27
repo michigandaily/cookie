@@ -33,7 +33,7 @@
     "parcel": "~2.7.0",
     "prettier": "2.7.1",
     "process": "^0.11.10",
-    "sink": "michigandaily/sink#v2.0.0"
+    "sink": "michigandaily/sink#v2.1.0"
   },
   "browserslist": [
     "since 2017-06"
