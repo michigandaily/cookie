@@ -2720,9 +2720,9 @@ side-channel@^1.0.4:
     get-intrinsic "^1.0.2"
     object-inspect "^1.9.0"
 
-sink@michigandaily/sink#v2.1.0:
-  version "2.0.0"
-  resolved "https://codeload.github.com/michigandaily/sink/tar.gz/b24d9fc511d4e152b7862633544171b86295cee3"
+sink@michigandaily/sink#v2.1.1:
+  version "2.1.1"
+  resolved "https://codeload.github.com/michigandaily/sink/tar.gz/24cbf6403eace22448d3b7075f01e2baee750a36"
   dependencies:
     "@googleapis/drive" "^3.0.1"
     "@googleapis/sheets" "^3.0.2"
