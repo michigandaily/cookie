@@ -1,6 +1,6 @@
 {
   "name": "cookie",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "Graphics template for The Michigan Daily",
   "author": {
     "name": "Naitian Zhou"
@@ -13,6 +13,7 @@
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
+    "postinstall": "sink fetch",
     "clean": "rm -rf dist/* && rm -rf .parcel-cache",
     "dev": "yarn clean && parcel src/index.html src/graphic/*.html",
     "build": "yarn clean && parcel build --no-scope-hoist src/index.html src/graphic/*.html"
@@ -33,7 +34,7 @@
     "parcel": "~2.7.0",
     "prettier": "2.7.1",
     "process": "^0.11.10",
-    "sink": "michigandaily/sink#v2.1.0"
+    "sink": "michigandaily/sink#v2.1.1"
   },
   "browserslist": [
     "since 2017-06"
