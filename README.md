@@ -19,7 +19,7 @@ It has several useful features:
 
 ## Using this template
 
-Click the green "Use this template" button to create a new instance of the `cookie` template. Then, clone the new instance and run `make init` to initialize the project.
+Click the green "Use this template" button to create a new instance of the `cookie` template. Then, clone the new instance and run `yarn install` to initialize the project.
 
 You can use `yarn dev` to start a development server and `yarn build` to build production-ready files into `dist/`.
 
