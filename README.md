@@ -11,7 +11,7 @@ It has several useful features:
 - [x] [D3v7](https://d3js.org/) as a dependency by default
 - [x] Templating with [Nunjucks](https://mozilla.github.io/nunjucks/)
 - [x] Easy deploy to GitHub Pages
-- [ ] Easy deploy to S3 bucket
+- [x] Easy deploy to S3 bucket
 - [x] Preview screen with embed URL
 - [x] Data ingest from Google Sheets
 - [x] Easy include of [ai2html](http://ai2html.org/) output
@@ -35,7 +35,8 @@ If you want to develop another graphic in the same instance, create a new HTML f
 
 ### Fetching from Google Drive
 
-Refer to the [Usage](https://github.com/MichiganDaily/sink#usage) section in the `sink` README for instructions on how to set up `config.json` for fetching files from Google Drive.
+Refer to the [Google Drive fetch
+](https://github.com/MichiganDaily/sink/tree/main#google-drive-fetch) section in the `sink` README for instructions on how to set up `config.json` for fetching files from Google Drive.
 
 You can import a JSON file in JS like this:
 
@@ -58,6 +59,10 @@ We use the [`@michigandaily/parcel-transformer-csv`](https://github.com/Michigan
 3. Set the red and bold `filename` value under the `ai2html-text` section to the name of the instance file name.
 4. Generate the ai2html output. It should be in `src/graphic/ai2html-output`.
 5. In `config.json`, set `illustrator_output_filename` to the HTML output file.
+
+## Deploying to AWS S3
+
+Run `make aws`. This 1) builds with `parcel build`, using `config.deployment.key` as the public URL, and 2) uses `yarn sink deploy aws` to deploy to AWS (and invalidate the cache) if necessary.
 
 ## Deploying to GitHub Pages
 
