@@ -35,8 +35,7 @@ If you want to develop another graphic in the same instance, create a new HTML f
 
 ### Fetching from Google Drive
 
-Refer to the [Google Drive fetch
-](https://github.com/MichiganDaily/sink/tree/main#google-drive-fetch) section in the `sink` README for instructions on how to set up `config.json` for fetching files from Google Drive.
+Refer to the [Google Drive fetch](https://github.com/MichiganDaily/sink/tree/main#google-drive-fetch) section in the `sink` README for instructions on how to set up `config.json` for fetching files from Google Drive.
 
 You can import a JSON file in JS like this:
 
@@ -61,6 +60,8 @@ We use the [`@michigandaily/parcel-transformer-csv`](https://github.com/Michigan
 5. In `config.json`, set `illustrator_output_filename` to the HTML output file.
 
 ## Deploying to AWS S3
+
+Refer to the [AWS S3 deployment with cache invalidation](https://github.com/MichiganDaily/sink/tree/main#aws-s3-deployment-with-cache-invalidation) section in the `sink` README for instructions on how to set up `config.json` for deploying to AWS S3.
 
 Run `make aws`. This 1) builds with `parcel build`, using `config.deployment.key` as the public URL, and 2) uses `yarn sink deploy aws` to deploy to AWS (and invalidate the cache) if necessary.
 
