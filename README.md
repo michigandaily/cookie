@@ -63,10 +63,10 @@ We use the [`@michigandaily/parcel-transformer-csv`](https://github.com/Michigan
 
 Refer to the [AWS S3 deployment with cache invalidation](https://github.com/MichiganDaily/sink/tree/main#aws-s3-deployment-with-cache-invalidation) section in the `sink` README for instructions on how to set up `config.json` for deploying to AWS S3.
 
-Run `make aws`. This 1) builds with `parcel build`, using `config.deployment.key` as the public URL, and 2) uses `yarn sink deploy aws` to deploy to AWS (and invalidate the cache) if necessary.
+Run `yarn sink deploy aws` to deploy to AWS (and invalidate the cache) if necessary.
 
 ## Deploying to GitHub Pages
 
-1. Run `make gh-pages`
+1. Run `yarn sink deploy github`
 2. Go to [`Settings > Pages`](../../settings/pages) and check the **Enforce HTTPS** option. All of our sites should enforce https, so please make sure to double check this!
 3. Your raw graphic will be accessible at `https://michigandaily.github.io/<repository-name>/graphic/index.html`
