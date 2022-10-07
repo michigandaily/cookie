@@ -31,7 +31,7 @@
     }
   ],
   "deployment": {
-    "url": "https://michigandaily.github.io/cookie",
+    "url": "https://michigandaily.github.io/",
     "region": "us-east-2",
     "distribution": "",
     "bucket": "",
