@@ -63,10 +63,13 @@ We use the [`@michigandaily/parcel-transformer-csv`](https://github.com/Michigan
 
 Refer to the [AWS S3 deployment with cache invalidation](https://github.com/MichiganDaily/sink/tree/main#aws-s3-deployment-with-cache-invalidation) section in the `sink` README for instructions on how to set up `config.json` for deploying to AWS S3.
 
-Run `make aws`. This 1) builds with `parcel build`, using `config.deployment.key` as the public URL, and 2) uses `yarn sink deploy aws` to deploy to AWS (and invalidate the cache) if necessary.
+Run `yarn sink deploy aws` to deploy to AWS (and invalidate the cache) if necessary.
 
 ## Deploying to GitHub Pages
 
-1. Run `make gh-pages`
-2. Go to [`Settings > Pages`](../../settings/pages) and check the **Enforce HTTPS** option. All of our sites should enforce https, so please make sure to double check this!
-3. Your raw graphic will be accessible at `https://michigandaily.github.io/<repository-name>/graphic/index.html`
+Refer to the [GitHub Pages deployment](https://github.com/MichiganDaily/sink/tree/main#github-pages-deployment) section in the `sink` README for instructions on how to set up `config.json` for deploying to GitHub Pages.
+
+1. Ensure that `targets.default.publicUrl` in `package.json` is set to the repository name path.
+2. Run `yarn sink deploy github`
+3. Go to [`Settings > Pages`](../../settings/pages) and check the **Enforce HTTPS** option. All of our sites should enforce https, so please make sure to double check this!
+4. Your raw graphic will be accessible at `https://michigandaily.github.io/<repository-name>/graphic/index.html`
