@@ -67,6 +67,8 @@ Run `yarn sink deploy aws` to deploy to AWS (and invalidate the cache) if necess
 
 ## Deploying to GitHub Pages
 
+Refer to the [GitHub Pages deployment](https://github.com/MichiganDaily/sink/tree/main#github-pages-deployment) section in the `sink` README for instructions on how to set up `config.json` for deploying to GitHub Pages.
+
 1. Run `yarn sink deploy github`
 2. Go to [`Settings > Pages`](../../settings/pages) and check the **Enforce HTTPS** option. All of our sites should enforce https, so please make sure to double check this!
 3. Your raw graphic will be accessible at `https://michigandaily.github.io/<repository-name>/graphic/index.html`
