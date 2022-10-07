@@ -3742,9 +3742,9 @@ side-channel@^1.0.4:
     get-intrinsic "^1.0.2"
     object-inspect "^1.9.0"
 
-sink@michigandaily/sink#github-deploy:
+sink@michigandaily/sink#2.3.0:
   version "2.3.0"
-  resolved "https://codeload.github.com/michigandaily/sink/tar.gz/5930164f58fb5f5270cdb86e3a827ea0bfd8614c"
+  resolved "https://codeload.github.com/michigandaily/sink/tar.gz/bfd359902fdbae3b8c13ca7b12454e05a30c7fc4"
   dependencies:
     "@aws-sdk/client-cloudfront" "^3.181.0"
     "@aws-sdk/client-s3" "^3.181.0"
