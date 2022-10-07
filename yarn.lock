@@ -2005,9 +2005,9 @@ callsites@^3.0.0:
   integrity sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==
 
 caniuse-lite@^1.0.30001400:
-  version "1.0.30001416"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001416.tgz#29692af8a6a11412f2d3cf9a59d588fcdd21ce4c"
-  integrity sha512-06wzzdAkCPZO+Qm4e/eNghZBDfVNDsCgw33T27OwBH9unE9S478OYw//Q2L7Npf/zBzs7rjZOszIFQkwQKAEqA==
+  version "1.0.30001418"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001418.tgz#5f459215192a024c99e3e3a53aac310fc7cf24e6"
+  integrity sha512-oIs7+JL3K9JRQ3jPZjlH6qyYDp+nBTCais7hjh0s+fuBwufc7uZ7hPYMXrDOJhV360KGMTcczMRObk0/iMqZRg==
 
 chalk@^2.0.0:
   version "2.4.2"
@@ -3742,9 +3742,9 @@ side-channel@^1.0.4:
     get-intrinsic "^1.0.2"
     object-inspect "^1.9.0"
 
-sink@michigandaily/sink#v2.2.0:
-  version "2.1.1"
-  resolved "https://codeload.github.com/michigandaily/sink/tar.gz/343f71bf5fe8525685d945279fd221ea7c60e291"
+sink@michigandaily/sink#github-deploy:
+  version "2.3.0"
+  resolved "https://codeload.github.com/michigandaily/sink/tar.gz/5930164f58fb5f5270cdb86e3a827ea0bfd8614c"
   dependencies:
     "@aws-sdk/client-cloudfront" "^3.181.0"
     "@aws-sdk/client-s3" "^3.181.0"
