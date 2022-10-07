@@ -9,7 +9,6 @@
       "illustrator_output_filename": "output.html"
     }
   },
-  "deployment": "https://michigandaily.github.io",
   "fetch": [
     {
       "type": "doc",
@@ -30,5 +29,14 @@
       "output": "",
       "auth": "~/.daily-google-services.json"
     }
-  ]
+  ],
+  "deployment": {
+    "url": "https://michigandaily.github.io/",
+    "region": "us-east-2",
+    "distribution": "",
+    "bucket": "",
+    "key": "",
+    "build": "./dist",
+    "profile": "sink"
+  }
 }
