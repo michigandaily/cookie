@@ -31,6 +31,8 @@ There are some SCSS variables available to you:
 - `$sans` for sans serif font (Open Sans)
 - `$blue`, `$maize`, `$gray`, `$black`, `$white`, and `$blue-{1..5}` for colors
 
+If you are embedding the graphic on the homepage, add the `homepage` class to the `body` tag. This will set the headline font to Lora, and will set the body font to Open Sans.
+
 If you want to develop another graphic in the same instance, create a new HTML file in `src/graphic` that uses the `base.html` template. Refer to `src/graphic/index.html` for how to extend the template. You'll also need to create a new entry in `config.json`.
 
 ### Fetching from Google Drive

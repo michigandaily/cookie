@@ -1,8 +1,18 @@
 @import "../../css/fonts.scss";
 @import "../../css/colors.scss";
 
+:root {
+  --hed-font: #{$sans-serif};
+  --body-font: #{$serif};
+}
+
+.homepage {
+  --hed-font: #{$serif};
+  --body-font: #{$sans-serif};
+}
+
 body {
-  font-family: $serif;
+  font-family: var(--body-font);
   padding: 1px;
   padding-bottom: 10px;
 }
@@ -21,7 +31,7 @@ figure {
 
   &__title {
     font-size: 1.2rem;
-    font-family: $sans;
+    font-family: var(--hed-font);
   }
 
   &__byline, &__source, &__note {
