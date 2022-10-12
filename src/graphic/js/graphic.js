@@ -2,6 +2,8 @@
 import pym from "pym.js";
 // import * as d3 from "d3";
 
+import downloadImage from "./download-image";
+
 const draw = () => {
   // step 1: access data
   // step 2: create chart dimensions
@@ -17,15 +19,6 @@ window.onresize = () => {};
 window.onload = () => {
   const pymChild = new pym.Child({ polling: 500 });
   pymChild.sendHeight();
-  pymChild.onMessage("download", async (format) => {
-    const { toSvg, toPng } = await import("html-to-image");
-    const converter = format === "svg" ? toSvg : toPng;
-    const imgurl = await converter(document.body);
-    const a = document.createElement("a");
-    a.href = imgurl;
-    a.download = `cookie-graphic-${new Date().toISOString()}.${format}`;
-    a.click();
-    a.remove();
-  });
+  pymChild.onMessage("download", downloadImage);
   draw();
 };

@@ -6,7 +6,7 @@
       "..."
     ],
     "*.csv": [
-      "@parcel/transformer-raw"
+      "@michigandaily/parcel-transformer-csv"
     ]
   }
 }
