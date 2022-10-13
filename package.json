@@ -16,8 +16,7 @@
     "postinstall": "sink fetch",
     "clean": "rm -rf dist/* && rm -rf .parcel-cache",
     "dev": "yarn clean && parcel src/index.html src/graphic/*.html",
-    "prebuild": "mkdir img",
-    "build": "yarn clean && node build.mjs",
+    "build": "yarn clean && mkdir img & node build.mjs",
     "postbuild": "(cd dist; mkdir img) && mv img/* dist/img/ && rm -rf img/"
   },
   "targets": {
@@ -27,7 +26,7 @@
   },
   "dependencies": {
     "d3": "^7.6.1",
-    "html-to-image": "^1.10.4",
+    "html-to-image": "^1.10.8",
     "pym.js": "^1.3.2"
   },
   "devDependencies": {
