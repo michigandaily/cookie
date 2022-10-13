@@ -16,8 +16,9 @@
     "postinstall": "sink fetch",
     "clean": "rm -rf dist/* && rm -rf .parcel-cache",
     "dev": "yarn clean && parcel src/index.html src/graphic/*.html",
-    "build": "yarn clean && mkdir img & node build.mjs",
-    "postbuild": "(cd dist; mkdir img) && mv img/* dist/img/ && rm -rf img/"
+    "prebuild": "mkdir -p img",
+    "build": "yarn clean && node build.mjs",
+    "postbuild": "(cd dist; mkdir -p img) && mv img/* dist/img/"
   },
   "targets": {
     "default": {
