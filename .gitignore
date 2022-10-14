@@ -4,12 +4,12 @@ dist/
 img/
 *.png
 *.svg
+*.ai
+*.csv
 auth.json
 .daily-google-services.json
-chrome.json
-*.ai
 src/graphic/data
-*.csv
+*.deb
 
 # Logs
 logs
