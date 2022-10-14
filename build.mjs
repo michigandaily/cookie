@@ -12,16 +12,14 @@ const getBrowser = async () => {
   let browser;
   if (existsSync(chromium.executablePath())) {
     browser = await chromium.launch();
-    console.log("Using Chrome from Playwright cache");
   } else {
     try {
       browser = await chromium.launch({
         channel: "chrome",
       });
-      console.log("Using default system Chrome");
     } catch {
       console.log(
-        "Installing Chrome to Playwright cache",
+        "Could not open Chrome. Installing to Playwright cache",
         chromium.executablePath()
       );
       await installBrowsersForNpmInstall(["chromium"]);
@@ -63,7 +61,7 @@ const main = async () => {
 
   let browser;
   try {
-    browser = getBrowser();
+    browser = await getBrowser();
   } catch (e) {
     console.log("Could not start browser. Skipping screenshot process");
     console.error(e);
