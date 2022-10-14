@@ -53,6 +53,7 @@ const main = async () => {
     if (event.type === "buildSuccess") {
       if (!browser) {
         await subscriber.unsubscribe();
+        return;
       }
       const page = await browser.newPage();
       const screenSizes = [780, 338, 288];
