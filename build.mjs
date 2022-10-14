@@ -36,25 +36,24 @@ const main = async () => {
     ],
   });
 
+  let browser;
+  try {
+    browser = await chromium.launch({
+      channel: "chrome",
+    });
+  } catch {
+    console.error("Could not find Chrome binary. Skipping screenshot script.");
+  }
+
   const subscriber = await bundler.watch(async (err, event) => {
     if (err) {
       throw err;
     }
 
     if (event.type === "buildSuccess") {
-      let browser;
-      try {
-        browser = await chromium.launch({
-          channel: "chrome",
-        });
-      } catch {
-        console.error(
-          "Could not find Chrome binary. Skipping screenshot script."
-        );
+      if (!browser) {
         await subscriber.unsubscribe();
-        return;
       }
-
       const page = await browser.newPage();
       const screenSizes = [780, 338, 288];
 
