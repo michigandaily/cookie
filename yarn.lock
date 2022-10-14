@@ -1150,9 +1150,9 @@
   resolved "https://registry.yarnpkg.com/@lmdb/lmdb-win32-x64/-/lmdb-win32-x64-2.5.2.tgz#28f643fbc0bec30b07fbe95b137879b6b4d1c9c5"
   integrity sha512-zrBczSbXKxEyK2ijtbRdICDygRqWSRPpZMN5dD1T8VMEW5RIhIbwFWw2phDRXuBQdVDpSjalCIUMWMV2h3JaZA==
 
-"@michigandaily/parcel-transformer-csv@michigandaily/parcel-transformer-csv#v1.0.1":
-  version "1.0.1"
-  resolved "https://codeload.github.com/michigandaily/parcel-transformer-csv/tar.gz/95fea80ed8f9aa9c60d499459d8fd9744fda3592"
+"@michigandaily/parcel-transformer-csv@michigandaily/parcel-transformer-csv#v1.0.2":
+  version "1.0.2"
+  resolved "https://codeload.github.com/michigandaily/parcel-transformer-csv/tar.gz/d0a1e300f873bc5e81c81aa03b23a0136b961107"
   dependencies:
     "@parcel/core" "^2.7.0"
     "@parcel/plugin" "^2.7.0"
