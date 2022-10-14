@@ -1,11 +1,34 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { normalize, basename } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { chromium } from "playwright";
+import { chromium } from "playwright-core";
+import { installBrowsersForNpmInstall } from "playwright-core/lib/server";
 import { Parcel } from "@parcel/core";
 
 const readJson = (path) => JSON.parse(readFileSync(path).toString());
+
+const getBrowser = async () => {
+  let browser;
+  if (existsSync(chromium.executablePath())) {
+    browser = await chromium.launch();
+  } else {
+    try {
+      browser = await chromium.launch({
+        channel: "chrome",
+      });
+    } catch {
+      console.log(
+        "Could not open Chrome. Installing to Playwright cache",
+        chromium.executablePath()
+      );
+      await installBrowsersForNpmInstall(["chromium"]);
+      browser = await chromium.launch();
+    }
+  }
+
+  return browser;
+};
 
 const main = async () => {
   const pkg = readJson("./package.json");
@@ -38,11 +61,10 @@ const main = async () => {
 
   let browser;
   try {
-    browser = await chromium.launch({
-      channel: "chrome",
-    });
-  } catch {
-    console.error("Could not find Chrome binary. Skipping screenshot script.");
+    browser = await getBrowser();
+  } catch (e) {
+    console.log("Could not start browser. Skipping screenshot process");
+    console.error(e);
   }
 
   const subscriber = await bundler.watch(async (err, event) => {
