@@ -31,7 +31,7 @@
     "pym.js": "^1.3.2"
   },
   "devDependencies": {
-    "@michigandaily/parcel-transformer-csv": "michigandaily/parcel-transformer-csv#v1.0.2",
+    "@michigandaily/parcel-transformer-csv": "michigandaily/parcel-transformer-csv#v1.0.3",
     "@michigandaily/parcel-transformer-nunjucks": "michigandaily/parcel-transformer-nunjucks#v2.2.2",
     "@parcel/core": "~2.7.0",
     "@parcel/transformer-sass": "~2.7.0",

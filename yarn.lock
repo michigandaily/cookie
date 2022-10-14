@@ -1150,14 +1150,13 @@
   resolved "https://registry.yarnpkg.com/@lmdb/lmdb-win32-x64/-/lmdb-win32-x64-2.5.2.tgz#28f643fbc0bec30b07fbe95b137879b6b4d1c9c5"
   integrity sha512-zrBczSbXKxEyK2ijtbRdICDygRqWSRPpZMN5dD1T8VMEW5RIhIbwFWw2phDRXuBQdVDpSjalCIUMWMV2h3JaZA==
 
-"@michigandaily/parcel-transformer-csv@michigandaily/parcel-transformer-csv#v1.0.2":
-  version "1.0.2"
-  resolved "https://codeload.github.com/michigandaily/parcel-transformer-csv/tar.gz/d0a1e300f873bc5e81c81aa03b23a0136b961107"
+"@michigandaily/parcel-transformer-csv@michigandaily/parcel-transformer-csv#v1.0.3":
+  version "1.0.3"
+  resolved "https://codeload.github.com/michigandaily/parcel-transformer-csv/tar.gz/dbc94004312de8507b3a720a4f70e99d89e82d59"
   dependencies:
     "@parcel/core" "^2.7.0"
     "@parcel/plugin" "^2.7.0"
     d3-dsv "^3.0.1"
-    parcel "^2.7.0"
 
 "@michigandaily/parcel-transformer-nunjucks@michigandaily/parcel-transformer-nunjucks#v2.2.2":
   version "2.2.2"
@@ -3490,7 +3489,7 @@ p-locate@^6.0.0:
   dependencies:
     p-limit "^4.0.0"
 
-parcel@^2.7.0, parcel@~2.7.0:
+parcel@~2.7.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/parcel/-/parcel-2.7.0.tgz#41fdd3e5c7144d4cf7f1fa3ab8d0ea0d47d31f77"
   integrity sha512-pRYwnivwtNP0tip8xYSo4zCB0XhLt7/gJzP1p8OovCqkmFjG9VG+GW9TcAKqMIo0ovEa9tT+/s6gY1Qy+BONGQ==
