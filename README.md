@@ -21,9 +21,13 @@ It has several useful features:
 
 Click the green "Use this template" button to create a new instance of the `cookie` template. Then, clone the new instance and run `yarn install` to initialize the project.
 
-You can use `yarn dev` to start a development server and `yarn build` to build production-ready files into `dist/`.
+You can use `yarn dev` to start a development server and `yarn build` to build production-ready files into `dist/`. 
 
-Edit the files in `src/`. To build graphics, you should only be editing files within the `src/graphic/` directory. You can write any markup in `src/graphic/index.html`, and JavaScript in `src/graphic/js/graphic.js`, and any styles in `src/graphic/css/graphic.scss`.
+Building will also trigger a process where Playwright will spawn a headless browser and download screenshots of the graphics.
+
+> If you are using Windows Subsystem for Linux (WSL), you may need to install Google Chrome in the subsystem in order for Playwright to have access to the Chrome binary. Refer to the addendum for [instructions on installing Chrome](#installing-google-chrome-on-wsl).
+
+Edit the files in `src/`. To create graphics, you should only be editing files within the `src/graphic/` directory. You can write any markup in `src/graphic/index.html`, and JavaScript in `src/graphic/js/graphic.js`, and any styles in `src/graphic/css/graphic.scss`.
 
 There are some SCSS variables available to you:
 
@@ -75,4 +79,14 @@ Refer to the [GitHub Pages deployment](https://github.com/MichiganDaily/sink/tre
 1. Ensure that `targets.default.publicUrl` in `package.json` is set to the repository name prepended by a `/`.
 2. Run `yarn sink deploy github`.
 3. Go to [`Settings > Pages`](../../settings/pages) and check the **Enforce HTTPS** option. All of our sites should enforce HTTPS, so please make sure to double check this!
-4. Your raw graphic will be accessible at `https://michigandaily.github.io/<repository-name>/graphic/index.html`
+4. Your raw graphic will be accessible at `https://michigandaily.github.io/<repository-name>/graphic/index.html`.
+
+## Addendum
+
+### Installing Google Chrome on WSL
+
+1. Update your dependencies by running `sudo apt update`.
+2. Download Chrome by running `wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb`.
+3. Install Chrome by running `sudo apt -y install ./google-chrome-stable_current_amd64.deb`.
+4. Check that Chrome is installed by running `google-chrome --version`.
+5. Remove the download by running `rm google-chrome-stable_current_amd64.deb`.

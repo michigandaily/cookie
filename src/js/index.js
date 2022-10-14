@@ -114,6 +114,7 @@ window.onload = async () => {
     parent.sendMessage(
       "download",
       JSON.stringify({
+        entry: getQueryParams().get("entry") || entry,
         format: "png",
         width: graphic.clientWidth,
       })
@@ -124,6 +125,7 @@ window.onload = async () => {
     parent.sendMessage(
       "download",
       JSON.stringify({
+        entry: getQueryParams().get("entry") || entry,
         format: "svg",
         width: graphic.clientWidth,
       })

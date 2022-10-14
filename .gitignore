@@ -1,11 +1,15 @@
 # Cookie specific
 build/
 dist/
+img/
+*.png
+*.svg
+*.ai
+*.csv
 auth.json
 .daily-google-services.json
-*.ai
 src/graphic/data
-*.csv
+*.deb
 
 # Logs
 logs
