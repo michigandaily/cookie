@@ -61,7 +61,13 @@ const main = async () => {
     ],
   });
 
-  const browser = getBrowser();
+  let browser;
+  try {
+    browser = getBrowser();
+  } catch (e) {
+    console.log("Could not start browser. Skipping screenshot process");
+    console.error(e);
+  }
 
   const subscriber = await bundler.watch(async (err, event) => {
     if (err) {
