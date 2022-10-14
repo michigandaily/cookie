@@ -35,6 +35,7 @@
     "@michigandaily/parcel-transformer-nunjucks": "michigandaily/parcel-transformer-nunjucks#v2.2.2",
     "@parcel/core": "~2.7.0",
     "@parcel/transformer-sass": "~2.7.0",
+    "dotenv": "^16.0.3",
     "eslint": "8.22.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.2.1",

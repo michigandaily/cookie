@@ -15,15 +15,13 @@ It has several useful features:
 - [x] Preview screen with embed URL
 - [x] Data ingest from Google Sheets
 - [x] Easy include of [ai2html](http://ai2html.org/) output
-- [x] Ability to develop several common graphics in one repository.
+- [x] Ability to develop several common graphics in one repository
 
 ## Using this template
 
 Click the green "Use this template" button to create a new instance of the `cookie` template. Then, clone the new instance and run `yarn install` to initialize the project.
 
-You can use `yarn dev` to start a development server and `yarn build` to build production-ready files into `dist/`. 
-
-Building will also trigger a process where Playwright will spawn a headless Chrome browser and download screenshots of the graphics. If the script is unable to find a cached version of Chrome or is unable to use your default Chrome installation, it will install Chrome in a cache folder.
+You can use `yarn dev` to start a development server and `yarn build` to build production-ready files into `dist/`.
 
 Edit the files in `src/`. To create graphics, you should only be editing files within the `src/graphic/` directory. You can write any markup in `src/graphic/index.html`, and JavaScript in `src/graphic/js/graphic.js`, and any styles in `src/graphic/css/graphic.scss`.
 
@@ -63,14 +61,14 @@ We use the [`@michigandaily/parcel-transformer-csv`](https://github.com/Michigan
 4. Generate the ai2html output. It should be in `src/graphic/ai2html-output`.
 5. In `config.json`, set `illustrator_output_filename` to the HTML output file.
 
-## Deploying to AWS S3
+### Deploying to AWS S3
 
 Refer to the [AWS S3 deployment with cache invalidation](https://github.com/MichiganDaily/sink/tree/main#aws-s3-deployment-with-cache-invalidation) section in the `sink` README for instructions on how to set up `config.json` for deploying to AWS S3.
 
 1. Ensure that `targets.default.publicUrl` in `package.json` is set to the `key` prepended by a `/`.
 2. Run `yarn sink deploy aws`.
 
-## Deploying to GitHub Pages
+### Deploying to GitHub Pages
 
 Refer to the [GitHub Pages deployment](https://github.com/MichiganDaily/sink/tree/main#github-pages-deployment) section in the `sink` README for instructions on how to set up `config.json` for deploying to GitHub Pages.
 
@@ -78,3 +76,11 @@ Refer to the [GitHub Pages deployment](https://github.com/MichiganDaily/sink/tre
 2. Run `yarn sink deploy github`.
 3. Go to [`Settings > Pages`](../../settings/pages) and check the **Enforce HTTPS** option. All of our sites should enforce HTTPS, so please make sure to double check this!
 4. Your raw graphic will be accessible at `https://michigandaily.github.io/<repository-name>/graphic/index.html`.
+
+### Playwright screenshots
+
+Running `yarn build` will 1) build production files and 2) trigger a process where Playwright spawns a headless Chrome browser and downloads screenshots of the graphics. If the script is unable to find a cached version of Chrome or is unable to use your default Chrome installation, it will install Chrome in a cache folder.
+
+If you don't want `yarn build` to trigger the Playwright process, set `COOKIE_SCREENSHOT=false` in a `.env` file.
+
+You can also prevent the screenshot process by setting the environment variable inline prior to a command: `COOKIE_SCREENSHOT=false yarn build` or `COOKIE_SCREENSHOT=false yarn sink deploy github`.
