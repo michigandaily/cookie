@@ -18,7 +18,7 @@
     "dev": "yarn clean && parcel src/index.html src/graphic/*.html",
     "prebuild": "mkdir -p img",
     "build": "yarn clean && node build.mjs",
-    "postbuild": "if [ $(ls -A img/) ]; then (cd dist; mkdir -p img) && mv img/* dist/img/; fi"
+    "postbuild": "if [ \"$(ls -A img/)\" ]; then ((cd dist; mkdir -p img) && mv img/* dist/img/); fi"
   },
   "targets": {
     "default": {
