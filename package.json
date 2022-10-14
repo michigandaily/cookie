@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@michigandaily/parcel-transformer-csv": "michigandaily/parcel-transformer-csv#v1.0.3",
-    "@michigandaily/parcel-transformer-nunjucks": "michigandaily/parcel-transformer-nunjucks#v2.2.2",
+    "@michigandaily/parcel-transformer-nunjucks": "michigandaily/parcel-transformer-nunjucks#v2.2.3",
     "@parcel/core": "~2.7.0",
     "@parcel/transformer-sass": "~2.7.0",
     "dotenv": "^16.0.3",
