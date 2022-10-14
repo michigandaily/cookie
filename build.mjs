@@ -3,9 +3,34 @@ import { normalize, basename } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { chromium } from "playwright-core";
+import { installBrowsersForNpmInstall } from "playwright-core/lib/server";
 import { Parcel } from "@parcel/core";
 
 const readJson = (path) => JSON.parse(readFileSync(path).toString());
+
+const getBrowser = async () => {
+  let browser;
+  if (existsSync(chromium.executablePath())) {
+    browser = await chromium.launch();
+    console.log("Using Chrome from Playwright cache");
+  } else {
+    try {
+      browser = await chromium.launch({
+        channel: "chrome",
+      });
+      console.log("Using default system Chrome");
+    } catch {
+      console.log(
+        "Installing Chrome to Playwright cache",
+        chromium.executablePath()
+      );
+      await installBrowsersForNpmInstall(["chromium"]);
+      browser = await chromium.launch();
+    }
+  }
+
+  return browser;
+};
 
 const main = async () => {
   const pkg = readJson("./package.json");
@@ -36,25 +61,7 @@ const main = async () => {
     ],
   });
 
-  let browser;
-  if (existsSync(chromium.executablePath())) {
-    console.log("Using Playwright's Chrome");
-    browser = await chromium.launch();
-  } else {
-    try {
-      console.log("Using default Chrome");
-      browser = await chromium.launch({
-        channel: "chrome",
-      });
-    } catch {
-      console.log("Installing Playwright's Chrome");
-      const { installBrowsersForNpmInstall } = await import(
-        "playwright-core/lib/server/registry"
-      );
-      await installBrowsersForNpmInstall(["chromium", "ffmpeg"]);
-      browser = await chromium.launch();
-    }
-  }
+  const browser = getBrowser();
 
   const subscriber = await bundler.watch(async (err, event) => {
     if (err) {
