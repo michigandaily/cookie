@@ -2,9 +2,10 @@ import { readFileSync, existsSync } from "node:fs";
 import { normalize, basename } from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { Parcel } from "@parcel/core";
+import { config as parseEnvironmentVariables } from "dotenv";
 import { chromium } from "playwright-core";
 import { installBrowsersForNpmInstall } from "playwright-core/lib/server";
-import { Parcel } from "@parcel/core";
 
 const readJson = (path) => JSON.parse(readFileSync(path).toString());
 
@@ -59,12 +60,21 @@ const main = async () => {
     ],
   });
 
+  if (existsSync(".env")) {
+    parseEnvironmentVariables();
+  }
+
+  const sc = process.env.COOKIE_SCREENSHOT;
+  const shouldScreenshot = sc === undefined ? true : sc === "true";
+
   let browser;
-  try {
-    browser = await getBrowser();
-  } catch (e) {
-    console.log("Could not start browser. Skipping screenshot process");
-    console.error(e);
+  if (shouldScreenshot) {
+    try {
+      browser = await getBrowser();
+    } catch (e) {
+      console.log("Could not start browser. Skipping screenshot process");
+      console.error(e);
+    }
   }
 
   const subscriber = await bundler.watch(async (err, event) => {
