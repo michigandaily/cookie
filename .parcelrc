@@ -5,8 +5,8 @@
       "@michigandaily/parcel-transformer-nunjucks",
       "..."
     ],
-    "*.csv": [
-      "@michigandaily/parcel-transformer-csv"
+    "*.{csv,tsv,dsv}": [
+      "@michigandaily/parcel-transformer-dsv"
     ]
   }
 }

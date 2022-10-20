@@ -51,7 +51,7 @@ You can import a CSV file in JS like this:
 import csvfile from "../data/data.csv";
 ```
 
-We use the [`@michigandaily/parcel-transformer-csv`](https://github.com/MichiganDaily/parcel-transformer-csv) plugin (which relies on [`d3-dsv`](https://github.com/d3/d3-dsv)) to parse the CSV file into a usable array. You can prevent automatic typing by adding a `autoType=false` query parameter to the end of the import path.
+We use the [`@michigandaily/parcel-transformer-dsv`](https://github.com/MichiganDaily/parcel-transformer-dsv) plugin (which relies on [`d3-dsv`](https://github.com/d3/d3-dsv)) to parse a CSV file (or other [DSV](https://en.wikipedia.org/wiki/Delimiter-separated_values) files) into a usable array. You can prevent automatic typing by adding a `autoType=false` query parameter to the end of the import path. You can also specify which columns you want imported with a `columns` query parameter. Refer to the [transformer README](https://github.com/MichiganDaily/parcel-transformer-dsv#parcel-transformer-dsv) for examples.
 
 ### Including `ai2html` output
 
