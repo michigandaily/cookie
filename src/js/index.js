@@ -1,5 +1,5 @@
 import pym from "pym.js";
-import { $, debounce, getQueryParams, setQueryParams } from "./util";
+import { $, debounce, getQueryParams, updateQueryParams } from "./util";
 
 const { origin, pathname } = window.location;
 
@@ -8,9 +8,9 @@ window.onload = async () => {
 
   const params = getQueryParams();
 
-  const updateQueryParams = (key, value) => {
+  const setQueryParam = (key, value) => {
     params.set(key, value);
-    setQueryParams(params);
+    updateQueryParams(params);
   };
 
   const { entries } = await import("../../config.json");
@@ -19,7 +19,7 @@ window.onload = async () => {
 
   if (!Object.hasOwn(entries, entry)) {
     entry = keys[0];
-    updateQueryParams("entry", entry);
+    setQueryParam("entry", entry);
   }
 
   const viewRawButton = $("#view-raw");
@@ -31,7 +31,7 @@ window.onload = async () => {
     urlInput.value = `${origin + pathname}graphic/${e}`;
     urlInput.size = urlInput.value.length;
 
-    updateQueryParams("entry", e);
+    setQueryParam("entry", e);
     entry = e;
 
     if (parent) {
@@ -61,7 +61,7 @@ window.onload = async () => {
 
   const setWidth = (width) => {
     graphic.style.width = `${width}px`;
-    updateQueryParams("width", width);
+    setQueryParam("width", width);
   };
 
   if (params.has("width")) {

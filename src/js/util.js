@@ -14,9 +14,9 @@ const debounce = (func, timeout = 300) => {
 const getQueryParams = () =>
   new URLSearchParams(window.location.search.slice(1));
 
-const setQueryParams = (params) => {
+const updateQueryParams = (params) => {
   const { history, title } = window;
   history.replaceState(null, title, `?${params.toString()}`);
 };
 
-export { $, debounce, setQueryParams, getQueryParams };
+export { $, debounce, updateQueryParams, getQueryParams };
