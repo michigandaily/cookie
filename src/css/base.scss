@@ -17,3 +17,16 @@ body {
   resize: horizontal;
   overflow-x: auto;
 }
+
+.notes {
+  display: block;
+        max-width: 600px;
+        margin-top: 10px;
+        background-color: rgb(221, 221, 221);
+        padding: 5px;
+        margin: 10px 0;
+
+  details p {
+    margin: 0.5rem;
+  }
+}

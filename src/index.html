@@ -21,7 +21,7 @@
       <li>Paste the URL into a Pym.js Embed Block on a WordPress post</li>
     </ol>
     <a id="view-raw" target="_blank"><button>View Raw</button></a>
-    <span style="margin-left: 10px;">
+    <span style="margin-left: 10px">
       <button id="desktop-preview">Desktop Preview</button>
       <button id="large-mobile-preview">Large Phone Preview</button>
       <button id="small-mobile-preview">Small Phone Preview</button>
@@ -31,13 +31,40 @@
       <button id="download-svg">Download as SVG</button>
     </span>
     <span class="options" id="display">
-      <input type="checkbox" name="hed" checked>Headline</input>
-      <input type="checkbox" name="dek" checked>Description</input>
-      <input type="checkbox" name="note" checked>Note</input>
-      <input type="checkbox" name="source" checked>Source</input>
-      <input type="checkbox" name="byline" checked>Byline</input>
-      <input type="checkbox" name="home">Homepage</input>
+      <input type="checkbox" id="hed-checkbox" name="hed" checked />
+      <label for="hed-checkbox">Headline</label>
+      <input type="checkbox" id="dek-checkbox" name="dek" checked />
+      <label for="dek-checkbox">Description</label>
+      <input type="checkbox" id="note-checkbox" name="note" checked />
+      <label for="note-checkbox">Note</label>
+      <input type="checkbox" id="source-checkbox" name="source" checked />
+      <label for="source-checkbox">Source</label>
+      <input type="checkbox" id="byline-checkbox" name="byline" checked />
+      <label for="byline-checkbox">Byline</label>
+      <input type="checkbox" id="home-checkbox" name="home" />
+      <label for="home-checkbox">Homepage</label>
     </span>
+    <small class="notes">
+      <details>
+        <summary><b>Notes about the above checkboxes</b></summary>
+        <p>
+          Use the checkboxes above only when taking screenshots. You should
+          refrain from using the associated query parameters when embedding
+          because delay in JavaScript execution will result in an initial flash
+          of content and potential content layout shift.
+        </p>
+        <p>
+          If you wish to hide certain text, either delete the appropriate tags
+          from the HTML template or remove the property from your configuration
+          file.
+        </p>
+        <p>
+          If you wish to use homepage styles, either set the body's class name
+          to homepage or set the entry's output property in the
+          configuration file to homepage.
+        </p>
+      </details>
+    </small>
     <div id="graphic"></div>
     <script type="module" src="./js/index.js" charset="utf-8"></script>
   </body>
