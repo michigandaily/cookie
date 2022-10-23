@@ -1,8 +1,6 @@
 import pym from "pym.js";
 import { $, debounce, getQueryParams, updateQueryParams } from "./util";
 
-const { origin, pathname } = window.location;
-
 window.onload = async () => {
   const graphic = $("#graphic");
 
@@ -26,9 +24,13 @@ window.onload = async () => {
   const urlInput = $("#url-input");
   let parent;
 
-  const setEntry = (e) => {
-    viewRawButton.href = `./graphic/${e}`;
-    urlInput.value = `${origin + pathname}graphic/${e}`;
+  const setEntry = (e, parameters = {}) => {
+    let p = "";
+    if (Object.keys(parameters).length > 0) {
+      p = `?${new URLSearchParams(parameters).toString()}`;
+    }
+    viewRawButton.href = `graphic/${e}${p}`;
+    urlInput.value = viewRawButton.href;
     urlInput.size = urlInput.value.length;
 
     setQueryParam("entry", e);
@@ -40,7 +42,36 @@ window.onload = async () => {
     parent = new pym.Parent("graphic", viewRawButton.href, {});
   };
 
-  setEntry(entry);
+  const displayOptions = Array.from($(".options#display").children);
+
+  const getDisplayOptionsFromQueryParams = () => {
+    return Object.fromEntries(
+      displayOptions
+        .filter((d) => params.has(d.name))
+        .map((d) => [d.name, params.get(d.name)])
+    );
+  };
+
+  displayOptions.forEach((option) => {
+    if (params.has(option.name)) {
+      option.checked = params.get(option.name) === "true";
+    }
+
+    option.addEventListener("change", ({ target: { name, checked } }) => {
+      if ((name === "home" && !checked) || (name !== "home" && checked)) {
+        params.delete(name);
+      } else if (
+        (name === "home" && checked) ||
+        (name !== "home" && !checked)
+      ) {
+        params.set(name, checked);
+      }
+      updateQueryParams(params);
+      setEntry(entry, getDisplayOptionsFromQueryParams());
+    });
+  });
+
+  setEntry(entry, getDisplayOptionsFromQueryParams());
 
   const entrypointSelect = $("#entrypoint-select");
 
@@ -56,7 +87,7 @@ window.onload = async () => {
 
   entrypointSelect.disabled = Object.keys(entries).length < 2;
   entrypointSelect.addEventListener("change", (e) => {
-    setEntry(e.target.value);
+    setEntry(e.target.value, getDisplayOptionsFromQueryParams());
   });
 
   const setWidth = (width) => {
@@ -90,7 +121,7 @@ window.onload = async () => {
     urlInput.select();
     urlInput.setSelectionRange(0, urlInput.value.length);
     document.execCommand("copy");
-    copy.innerHTML = "Copied!";
+    copy.textContent = "Copied!";
   });
 
   const downloadMessage = (fmt) =>
