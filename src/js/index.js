@@ -125,10 +125,10 @@ window.onload = async () => {
     copyButton.textContent = "Copied!";
   });
 
-  const downloadMessage = (fmt) =>
+  const downloadMessage = (format) =>
     JSON.stringify({
       entry,
-      fmt,
+      format,
       width: graphic.clientWidth,
     });
 
