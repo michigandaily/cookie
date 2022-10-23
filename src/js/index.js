@@ -1,7 +1,7 @@
 import pym from "pym.js";
 
 const { history, title, location } = window;
-const { origin, pathname, search } = location;
+const { origin, pathname } = location;
 
 const $ = (selector) => document.querySelector(selector);
 
@@ -9,7 +9,7 @@ const setQueryParams = (params) => {
   history.replaceState(null, title, `?${params.toString()}`);
 };
 
-const getQueryParams = () => new URLSearchParams(search.slice(1));
+const getQueryParams = () => new URLSearchParams(location.search.slice(1));
 
 const setWidth = (width) => {
   $("#graphic").style.width = `${width}px`;
@@ -111,10 +111,10 @@ window.onload = async () => {
     copy.innerHTML = "Copied!";
   });
 
-  const downloadMessage = (format) =>
+  const downloadMessage = (fmt) =>
     JSON.stringify({
       entry,
-      format,
+      fmt,
       width: graphic.clientWidth,
     });
 
