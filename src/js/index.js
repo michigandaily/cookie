@@ -1,6 +1,7 @@
 import pym from "pym.js";
 
 const { history, title, location } = window;
+const { origin, pathname, search } = location;
 
 const $ = (selector) => document.querySelector(selector);
 
@@ -8,7 +9,7 @@ const setQueryParams = (params) => {
   history.replaceState(null, title, `?${params.toString()}`);
 };
 
-const getQueryParams = () => new URLSearchParams(location.search.slice(1));
+const getQueryParams = () => new URLSearchParams(search.slice(1));
 
 const setWidth = (width) => {
   $("#graphic").style.width = `${width}px`;
@@ -31,7 +32,6 @@ function debounce(func, timeout = 300) {
 window.onload = async () => {
   const graphic = $("#graphic");
 
-  // Set the width on load if exists
   const params = getQueryParams();
 
   const { entries } = await import("../../config.json");
@@ -43,14 +43,27 @@ window.onload = async () => {
     entry = Object.keys(entries)[0];
   }
 
-  let parent = new pym.Parent("graphic", `./graphic/${entry}`, {});
+  const raw = $("#view-raw");
+  const url = $("#url-input");
+  let parent;
 
-  const viewRaw = $("#view-raw");
-  viewRaw.href = `./graphic/${entry}`;
+  const setEntry = (e) => {
+    raw.href = `./graphic/${e}`;
 
-  const urlInput = $("#url-input");
-  urlInput.value = `${location.origin + location.pathname}graphic/${entry}`;
-  urlInput.size = urlInput.value.length;
+    url.value = `${origin + pathname}graphic/${e}`;
+    url.size = url.value.length;
+
+    params.set("entry", e);
+    setQueryParams(params);
+    entry = e;
+
+    if (parent) {
+      parent.remove();
+    }
+    parent = new pym.Parent("graphic", raw.href, {});
+  };
+
+  setEntry(entry);
 
   const entrypointSelect = $("#entrypoint-select");
 
@@ -64,20 +77,9 @@ window.onload = async () => {
     entrypointSelect.appendChild(option);
   });
 
-  entrypointSelect.disabled = Object.keys(entries).length <= 1;
+  entrypointSelect.disabled = Object.keys(entries).length < 2;
   entrypointSelect.addEventListener("change", (e) => {
-    urlInput.value = `${location.origin + location.pathname}graphic/${
-      e.target.value
-    }`;
-    urlInput.size = urlInput.value.length;
-
-    viewRaw.href = `./graphic/${e.target.value}`;
-
-    params.set("entry", e.target.value);
-    setQueryParams(params);
-
-    parent.remove();
-    parent = new pym.Parent("graphic", `./graphic/${e.target.value}`, {});
+    setEntry(e.target.value);
   });
 
   if (params.has("width")) {
@@ -101,34 +103,26 @@ window.onload = async () => {
     setWidth(338);
   });
 
-  const copyButton = $("#copy-url-button");
-
-  copyButton.addEventListener("click", () => {
-    urlInput.select();
-    urlInput.setSelectionRange(0, urlInput.value.length);
+  const copy = $("#copy-url-button");
+  copy.addEventListener("click", () => {
+    url.select();
+    url.setSelectionRange(0, url.value.length);
     document.execCommand("copy");
-    copyButton.innerHTML = "Copied!";
+    copy.innerHTML = "Copied!";
   });
 
+  const downloadMessage = (format) =>
+    JSON.stringify({
+      entry,
+      format,
+      width: graphic.clientWidth,
+    });
+
   $("#download-png").addEventListener("click", () => {
-    parent.sendMessage(
-      "download",
-      JSON.stringify({
-        entry: getQueryParams().get("entry") || entry,
-        format: "png",
-        width: graphic.clientWidth,
-      })
-    );
+    parent.sendMessage("download", downloadMessage("png"));
   });
 
   $("#download-svg").addEventListener("click", () => {
-    parent.sendMessage(
-      "download",
-      JSON.stringify({
-        entry: getQueryParams().get("entry") || entry,
-        format: "svg",
-        width: graphic.clientWidth,
-      })
-    );
+    parent.sendMessage("download", downloadMessage("svg"));
   });
 };
