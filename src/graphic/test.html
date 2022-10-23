@@ -1,0 +1,10 @@
+{% extends "src/graphic/template/base.html" %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="./css/graphic.scss" type="text/css" media="all" />
+{% endblock %}
+
+{% block scripts %}
+<script type="module" src="./js/graphic.js" charset="utf-8"></script>
+{% endblock %}
