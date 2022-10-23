@@ -1,73 +1,50 @@
 import pym from "pym.js";
+import { $, debounce, getQueryParams, setQueryParams } from "./util";
 
-const { history, title, location } = window;
-const { origin, pathname } = location;
-
-const $ = (selector) => document.querySelector(selector);
-
-const setQueryParams = (params) => {
-  history.replaceState(null, title, `?${params.toString()}`);
-};
-
-const getQueryParams = () => new URLSearchParams(location.search.slice(1));
-
-const setWidth = (width) => {
-  $("#graphic").style.width = `${width}px`;
-  const params = getQueryParams();
-  params.set("width", width);
-  setQueryParams(params);
-};
-
-// https://www.freecodecamp.org/news/javascript-debounce-example/
-function debounce(func, timeout = 300) {
-  let timer;
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      func.apply(this, args);
-    }, timeout);
-  };
-}
+const { origin, pathname } = window.location;
 
 window.onload = async () => {
   const graphic = $("#graphic");
 
   const params = getQueryParams();
 
+  const updateQueryParams = (key, value) => {
+    params.set(key, value);
+    setQueryParams(params);
+  };
+
   const { entries } = await import("../../config.json");
-  let entry = params.get("entry") ?? Object.keys(entries)[0];
+  const keys = Object.keys(entries);
+  let entry = params.get("entry") ?? keys[0];
 
   if (!Object.hasOwn(entries, entry)) {
-    params.delete("entry");
-    setQueryParams(params);
-    entry = Object.keys(entries)[0];
+    entry = keys[0];
+    updateQueryParams("entry", entry);
   }
 
-  const raw = $("#view-raw");
-  const url = $("#url-input");
+  const viewRawButton = $("#view-raw");
+  const urlInput = $("#url-input");
   let parent;
 
   const setEntry = (e) => {
-    raw.href = `./graphic/${e}`;
+    viewRawButton.href = `./graphic/${e}`;
+    urlInput.value = `${origin + pathname}graphic/${e}`;
+    urlInput.size = urlInput.value.length;
 
-    url.value = `${origin + pathname}graphic/${e}`;
-    url.size = url.value.length;
-
-    params.set("entry", e);
-    setQueryParams(params);
+    updateQueryParams("entry", e);
     entry = e;
 
     if (parent) {
       parent.remove();
     }
-    parent = new pym.Parent("graphic", raw.href, {});
+    parent = new pym.Parent("graphic", viewRawButton.href, {});
   };
 
   setEntry(entry);
 
   const entrypointSelect = $("#entrypoint-select");
 
-  Object.keys(entries).forEach((key) => {
+  keys.forEach((key) => {
     const option = document.createElement("option");
     option.value = key;
     option.textContent = key;
@@ -81,6 +58,11 @@ window.onload = async () => {
   entrypointSelect.addEventListener("change", (e) => {
     setEntry(e.target.value);
   });
+
+  const setWidth = (width) => {
+    graphic.style.width = `${width}px`;
+    updateQueryParams("width", width);
+  };
 
   if (params.has("width")) {
     setWidth(params.get("width"));
@@ -105,8 +87,8 @@ window.onload = async () => {
 
   const copy = $("#copy-url-button");
   copy.addEventListener("click", () => {
-    url.select();
-    url.setSelectionRange(0, url.value.length);
+    urlInput.select();
+    urlInput.setSelectionRange(0, urlInput.value.length);
     document.execCommand("copy");
     copy.innerHTML = "Copied!";
   });
