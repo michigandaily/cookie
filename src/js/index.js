@@ -22,6 +22,7 @@ window.onload = async () => {
 
   const viewRawButton = $("#view-raw");
   const urlInput = $("#url-input");
+  const copyButton = $("#copy-url-button");
   let parent;
 
   const setEntry = (e, parameters = {}) => {
@@ -32,6 +33,7 @@ window.onload = async () => {
     viewRawButton.href = `graphic/${e}${p}`;
     urlInput.value = viewRawButton.href;
     urlInput.size = urlInput.value.length;
+    copyButton.textContent = "Copy";
 
     setQueryParam("entry", e);
     entry = e;
@@ -116,12 +118,11 @@ window.onload = async () => {
     setWidth(338);
   });
 
-  const copy = $("#copy-url-button");
-  copy.addEventListener("click", () => {
+  copyButton.addEventListener("click", () => {
     urlInput.select();
     urlInput.setSelectionRange(0, urlInput.value.length);
     document.execCommand("copy");
-    copy.textContent = "Copied!";
+    copyButton.textContent = "Copied!";
   });
 
   const downloadMessage = (fmt) =>
