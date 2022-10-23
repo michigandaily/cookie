@@ -4,7 +4,10 @@ const params = getQueryParams();
 
 const shouldHide = (prop) => params.get(prop) === "false";
 const hide = (selector) => {
-  $(selector).style.display = "none";
+  const element = $(selector);
+  if (element) {
+    $(selector).style.display = "none";
+  }
 };
 
 const setDisplay = () => {
