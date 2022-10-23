@@ -21,15 +21,22 @@
       <li>Paste the URL into a Pym.js Embed Block on a WordPress post</li>
     </ol>
     <a id="view-raw" target="_blank"><button>View Raw</button></a>
-    <span style="margin-left: 10px; margin-right: 10px;">
+    <span style="margin-left: 10px;">
       <button id="desktop-preview">Desktop Preview</button>
       <button id="large-mobile-preview">Large Phone Preview</button>
       <button id="small-mobile-preview">Small Phone Preview</button>
     </span>
-    <br/>
-    <span style="margin-top: 10px; margin-bottom: 10px; display: block;">
+    <span class="options">
       <button id="download-png">Download as PNG</button>
       <button id="download-svg">Download as SVG</button>
+    </span>
+    <span class="options" id="display">
+      <input type="checkbox" name="hed" checked>Headline</input>
+      <input type="checkbox" name="dek" checked>Description</input>
+      <input type="checkbox" name="note" checked>Note</input>
+      <input type="checkbox" name="source" checked>Source</input>
+      <input type="checkbox" name="byline" checked>Byline</input>
+      <input type="checkbox" name="home">Homepage</input>
     </span>
     <div id="graphic"></div>
     <script type="module" src="./js/index.js" charset="utf-8"></script>

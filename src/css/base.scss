@@ -5,6 +5,12 @@ body {
   font-family: $sans-serif;
 }
 
+.options {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
+}
+
 #graphic {
   border: 1px solid $gray;
   width: 780px;

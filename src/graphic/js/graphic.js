@@ -2,7 +2,8 @@
 import pym from "pym.js";
 // import * as d3 from "d3";
 
-import downloadImage from "./download-image";
+import downloadImage from "./util/download-image";
+import setDisplayOptions from "./util/set-display";
 
 const draw = () => {
   // step 1: access data
@@ -17,8 +18,9 @@ const draw = () => {
 window.onresize = () => {};
 
 window.onload = () => {
-  const pymChild = new pym.Child({ polling: 500 });
-  pymChild.sendHeight();
-  pymChild.onMessage("download", downloadImage);
+  const child = new pym.Child({ polling: 500 });
+  child.sendHeight();
+  child.onMessage("download", downloadImage);
+  setDisplayOptions();
   draw();
 };

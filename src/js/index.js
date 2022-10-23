@@ -1,60 +1,83 @@
 import pym from "pym.js";
-
-const { history, title, location } = window;
-
-const $ = (selector) => document.querySelector(selector);
-
-const setQueryParams = (params) => {
-  history.replaceState(null, title, `?${params.toString()}`);
-};
-
-const getQueryParams = () => new URLSearchParams(location.search.slice(1));
-
-const setWidth = (width) => {
-  $("#graphic").style.width = `${width}px`;
-  const params = getQueryParams();
-  params.set("width", width);
-  setQueryParams(params);
-};
-
-// https://www.freecodecamp.org/news/javascript-debounce-example/
-function debounce(func, timeout = 300) {
-  let timer;
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      func.apply(this, args);
-    }, timeout);
-  };
-}
+import { $, debounce, getQueryParams, updateQueryParams } from "./util";
 
 window.onload = async () => {
   const graphic = $("#graphic");
 
-  // Set the width on load if exists
   const params = getQueryParams();
 
+  const setQueryParam = (key, value) => {
+    params.set(key, value);
+    updateQueryParams(params);
+  };
+
   const { entries } = await import("../../config.json");
-  let entry = params.get("entry") ?? Object.keys(entries)[0];
+  const keys = Object.keys(entries);
+  let entry = params.get("entry") ?? keys[0];
 
   if (!Object.hasOwn(entries, entry)) {
-    params.delete("entry");
-    setQueryParams(params);
-    entry = Object.keys(entries)[0];
+    entry = keys[0];
+    setQueryParam("entry", entry);
   }
 
-  let parent = new pym.Parent("graphic", `./graphic/${entry}`, {});
-
-  const viewRaw = $("#view-raw");
-  viewRaw.href = `./graphic/${entry}`;
-
+  const viewRawButton = $("#view-raw");
   const urlInput = $("#url-input");
-  urlInput.value = `${location.origin + location.pathname}graphic/${entry}`;
-  urlInput.size = urlInput.value.length;
+  const copyButton = $("#copy-url-button");
+  let parent;
+
+  const setEntry = (e, parameters = {}) => {
+    let p = "";
+    if (Object.keys(parameters).length > 0) {
+      p = `?${new URLSearchParams(parameters).toString()}`;
+    }
+    viewRawButton.href = `graphic/${e}${p}`;
+    urlInput.value = viewRawButton.href;
+    urlInput.size = urlInput.value.length;
+    copyButton.textContent = "Copy";
+
+    setQueryParam("entry", e);
+    entry = e;
+
+    if (parent) {
+      parent.remove();
+    }
+    parent = new pym.Parent("graphic", viewRawButton.href, {});
+  };
+
+  const displayOptions = Array.from($(".options#display").children);
+
+  const getDisplayOptionsFromQueryParams = () => {
+    return Object.fromEntries(
+      displayOptions
+        .filter((d) => params.has(d.name))
+        .map((d) => [d.name, params.get(d.name)])
+    );
+  };
+
+  displayOptions.forEach((option) => {
+    if (params.has(option.name)) {
+      option.checked = params.get(option.name) === "true";
+    }
+
+    option.addEventListener("change", ({ target: { name, checked } }) => {
+      if ((name === "home" && !checked) || (name !== "home" && checked)) {
+        params.delete(name);
+      } else if (
+        (name === "home" && checked) ||
+        (name !== "home" && !checked)
+      ) {
+        params.set(name, checked);
+      }
+      updateQueryParams(params);
+      setEntry(entry, getDisplayOptionsFromQueryParams());
+    });
+  });
+
+  setEntry(entry, getDisplayOptionsFromQueryParams());
 
   const entrypointSelect = $("#entrypoint-select");
 
-  Object.keys(entries).forEach((key) => {
+  keys.forEach((key) => {
     const option = document.createElement("option");
     option.value = key;
     option.textContent = key;
@@ -64,21 +87,15 @@ window.onload = async () => {
     entrypointSelect.appendChild(option);
   });
 
-  entrypointSelect.disabled = Object.keys(entries).length <= 1;
+  entrypointSelect.disabled = Object.keys(entries).length < 2;
   entrypointSelect.addEventListener("change", (e) => {
-    urlInput.value = `${location.origin + location.pathname}graphic/${
-      e.target.value
-    }`;
-    urlInput.size = urlInput.value.length;
-
-    viewRaw.href = `./graphic/${e.target.value}`;
-
-    params.set("entry", e.target.value);
-    setQueryParams(params);
-
-    parent.remove();
-    parent = new pym.Parent("graphic", `./graphic/${e.target.value}`, {});
+    setEntry(e.target.value, getDisplayOptionsFromQueryParams());
   });
+
+  const setWidth = (width) => {
+    graphic.style.width = `${width}px`;
+    setQueryParam("width", width);
+  };
 
   if (params.has("width")) {
     setWidth(params.get("width"));
@@ -101,34 +118,25 @@ window.onload = async () => {
     setWidth(338);
   });
 
-  const copyButton = $("#copy-url-button");
-
   copyButton.addEventListener("click", () => {
     urlInput.select();
     urlInput.setSelectionRange(0, urlInput.value.length);
     document.execCommand("copy");
-    copyButton.innerHTML = "Copied!";
+    copyButton.textContent = "Copied!";
   });
 
+  const downloadMessage = (format) =>
+    JSON.stringify({
+      entry,
+      format,
+      width: graphic.clientWidth,
+    });
+
   $("#download-png").addEventListener("click", () => {
-    parent.sendMessage(
-      "download",
-      JSON.stringify({
-        entry: getQueryParams().get("entry") || entry,
-        format: "png",
-        width: graphic.clientWidth,
-      })
-    );
+    parent.sendMessage("download", downloadMessage("png"));
   });
 
   $("#download-svg").addEventListener("click", () => {
-    parent.sendMessage(
-      "download",
-      JSON.stringify({
-        entry: getQueryParams().get("entry") || entry,
-        format: "svg",
-        width: graphic.clientWidth,
-      })
-    );
+    parent.sendMessage("download", downloadMessage("svg"));
   });
 };
