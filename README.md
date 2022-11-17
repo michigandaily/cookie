@@ -25,11 +25,11 @@ You can use `yarn dev` to start a development server and `yarn build` to build p
 
 Edit the files in `src/`. To create graphics, you should only be editing files within the `src/graphic/` directory. You can write any markup in `src/graphic/index.html`, and JavaScript in `src/graphic/js/graphic.js`, and any styles in `src/graphic/css/graphic.scss`.
 
-There are some SCSS variables available to you:
+There are some [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) available to you:
 
-- `$serif` for serif font (Lora)
-- `$sans` for sans serif font (Open Sans)
-- `$blue`, `$maize`, `$gray`, `$black`, `$white`, and `$blue-{1..5}` for colors
+- `--serif` for serif font (Lora)
+- `--sans` for sans serif font (Open Sans)
+- `--blue`, `--maize`, `--gray`, `--black`, `--white`, and `--blue-{1..5}` for colors
 
 If you are embedding the graphic on the homepage, add the `homepage` class to the `body` tag. This will set the headline font to Lora, and will set the body font to Open Sans.
 

@@ -2,13 +2,13 @@
 @import "../../css/colors.scss";
 
 :root {
-  --hed-font: #{$sans-serif};
-  --body-font: #{$serif};
+  --hed-font: var(--sans);
+  --body-font: var(--serif);
 }
 
 .homepage {
-  --hed-font: #{$serif};
-  --body-font: #{$sans-serif};
+  --hed-font: var(--serif);
+  --body-font: var(--sans);
 }
 
 body {
