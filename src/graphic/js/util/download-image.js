@@ -2,9 +2,8 @@ const downloadImage = async (message) => {
   const { entry, format, width } = JSON.parse(message);
   const a = document.createElement("a");
   if (format === "svg") {
-    const { elementToSVG, inlineResources } = await import("dom-to-svg");
+    const { elementToSVG } = await import("dom-to-svg");
     const xml = elementToSVG(document.body);
-    await inlineResources(xml.documentElement);
     const svgString = new XMLSerializer().serializeToString(xml);
     a.href = `data:text/plain;charset=utf-8,${encodeURIComponent(svgString)}`;
   } else if (format === "png") {
