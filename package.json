@@ -46,7 +46,7 @@
     "playwright-core": "^1.27.1",
     "prettier": "2.7.1",
     "process": "^0.11.10",
-    "sink": "michigandaily/sink#2.3.1"
+    "sink": "michigandaily/sink#2.4.0"
   },
   "browserslist": [
     "since 2017-06"
