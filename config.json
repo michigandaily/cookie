@@ -38,5 +38,9 @@
     "key": "",
     "build": "./dist",
     "profile": "sink"
+  },
+  "screenshot": {
+    "sizes": [780, 338, 288],
+    "formats": ["svg"]
   }
 }

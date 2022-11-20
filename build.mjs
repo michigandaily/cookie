@@ -35,6 +35,7 @@ const main = async () => {
   const pkg = readJson("./package.json");
   const config = readJson("./config.json");
   const entries = Object.keys(config.entries);
+  const { sizes, formats } = config.screenshot;
 
   const publicUrl = pkg.targets.default.publicUrl;
   const port = 1234;
@@ -88,7 +89,6 @@ const main = async () => {
         return;
       }
       const page = await browser.newPage();
-      const screenSizes = [780, 338, 288];
 
       const downloadAndSave = async (entry, size, format) => {
         await page.locator("#graphic > iframe").waitFor("attached");
@@ -110,15 +110,17 @@ const main = async () => {
       };
 
       const shots = entries
-        .map((entry) => screenSizes.map((size) => ({ entry, size })))
+        .map((entry) => sizes.map((size) => ({ entry, size })))
         .flat();
 
       for await (const { entry, size } of shots) {
         await page.goto(`${baseUrl}?width=${size}&entry=${entry}`, {
           waitUntil: "networkidle",
         });
-        await downloadAndSave(entry, size, "png");
-        await downloadAndSave(entry, size, "svg");
+
+        for await (const format of formats) {
+          await downloadAndSave(entry, size, format);
+        }
       }
       await browser.close();
       await subscriber.unsubscribe();
