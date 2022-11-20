@@ -1228,9 +1228,9 @@
     "@parcel/plugin" "^2.8.0"
     d3-dsv "^3.0.1"
 
-"@michigandaily/parcel-transformer-nunjucks@michigandaily/parcel-transformer-nunjucks#v2.2.4":
-  version "2.2.4"
-  resolved "https://codeload.github.com/michigandaily/parcel-transformer-nunjucks/tar.gz/00fdb38016a5ce36f48e00a3219182302cfb2077"
+"@michigandaily/parcel-transformer-nunjucks@michigandaily/parcel-transformer-nunjucks#v2.2.5":
+  version "2.2.5"
+  resolved "https://codeload.github.com/michigandaily/parcel-transformer-nunjucks/tar.gz/ef441190ae1642677cd2ed0d735de2ebb55b4135"
   dependencies:
     "@parcel/core" "~2.8.0"
     "@parcel/plugin" "~2.8.0"
