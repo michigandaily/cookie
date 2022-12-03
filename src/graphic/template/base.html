@@ -5,36 +5,38 @@
     <meta charset="UTF-8" />
     <meta name="robots" content="noindex" />
     <meta name="viewport" content="width=device-width" />
-    <title>{{ config.entries[filename].hed }}</title>
+    <title>{{config.entries[filename].hed}}</title>
 
-    {% block styles %}
-    <link rel="stylesheet" href="./css/main.scss" type="text/css" media="all" />
-    {% endblock %}
+    {%- block styles %}
+    <link rel="stylesheet" href="./css/main.scss" />
+    {%- endblock %}
   </head>
 
   <body>
-    {% if 'hed' in config.entries[filename] %}
-    <h1 class="figure__title">{{ config.entries[filename].hed }}</h1>
-    {% endif %}
-    {% if 'dek' in config.entries[filename] %}
-    <h2 class="figure__caption">{{ config.entries[filename].dek }}</h2>
-    {% endif %}
+    {%- if 'hed' in config.entries[filename] %}
+    <h1 class="figure__title">{{config.entries[filename].hed}}</h1>
+    {%- endif %}
+    {%- if 'dek' in config.entries[filename] %}
+    <h2 class="figure__caption">{{config.entries[filename].dek}}</h2>
+    {%- endif %}
     <figure>
-      {% include "src/graphic/ai2html-output/" + config.entries[filename].illustrator_output_filename ignore missing %}
+      {%- block figure %}
+      {%- endblock %}
+      {%- include "src/graphic/ai2html-output/" + config.entries[filename].illustrator_output_filename ignore missing %}
     </figure>
-    {% if config.entries[filename].note %}
-    <div class="figure__note">Note: {{ config.entries[filename].note }}</div>
-    {% endif %}
-    {% if config.entries[filename].source %}
-    <div class="figure__source">Source: {{ config.entries[filename].source }}</div>
-    {% endif %}
-    {% if config.entries[filename].byline %}
+    {%- if config.entries[filename].note %}
+    <div class="figure__note">Note: {{config.entries[filename].note}}</div>
+    {%- endif %}
+    {%- if config.entries[filename].source %}
+    <div class="figure__source">Source: {{config.entries[filename].source}}</div>
+    {%- endif %}
+    {%- if config.entries[filename].byline %}
     <div class="figure__byline">
-      Graphic by {{ config.entries[filename].byline }} / The Michigan Daily
+      Graphic by {{config.entries[filename].byline}} / The Michigan Daily
     </div>
-    {% endif %}
+    {%- endif %}
 
-    {% block scripts %}
-    {% endblock %}
+    {%- block scripts %}
+    {%- endblock %}
   </body>
 </html>

@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex" />
     <meta name="viewport" content="width=device-width" />
     <title>Cookie graphic preview</title>
-    <link rel="stylesheet" href="./css/base.scss" type="text/css" media="all" />
+    <link rel="stylesheet" href="./css/base.scss" />
   </head>
   <body>
     <div><strong>Embed Instructions</strong></div>
@@ -31,30 +31,30 @@
       <button id="download-svg">Download as SVG</button>
     </span>
     <span class="options" id="display">
-      {% if 'hed' in config.entries[filename] %}
+      {%- if 'hed' in config.entries[filename] %}
       <input type="checkbox" id="hed-checkbox" name="hed" checked />
       <label for="hed-checkbox">Headline</label>
-      {% endif %}
+      {%- endif %}
       
-      {% if 'dek' in config.entries[filename] %}
+      {%- if 'dek' in config.entries[filename] %}
       <input type="checkbox" id="dek-checkbox" name="dek" checked />
       <label for="dek-checkbox">Description</label>
-      {% endif %}
+      {%- endif %}
 
-      {% if 'note' in config.entries[filename] %}
+      {%- if 'note' in config.entries[filename] %}
       <input type="checkbox" id="note-checkbox" name="note" checked />
       <label for="note-checkbox">Note</label>
-      {% endif %}
+      {%- endif %}
 
-      {% if 'source' in config.entries[filename] %}
+      {%- if 'source' in config.entries[filename] %}
       <input type="checkbox" id="source-checkbox" name="source" checked />
       <label for="source-checkbox">Source</label>
-      {% endif %}
+      {%- endif %}
 
-      {% if 'byline' in config.entries[filename] %}
+      {%- if 'byline' in config.entries[filename] %}
       <input type="checkbox" id="byline-checkbox" name="byline" checked />
       <label for="byline-checkbox">Byline</label>
-      {% endif %}
+      {%- endif %}
 
       <input type="checkbox" id="home-checkbox" name="home" />
       <label for="home-checkbox">Homepage</label>

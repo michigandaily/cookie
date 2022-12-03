@@ -1,6 +1,7 @@
 {
   "name": "cookie",
   "version": "3.4.0",
+  "type": "module",
   "description": "Graphics template for The Michigan Daily",
   "author": {
     "name": "Naitian Zhou"
@@ -14,16 +15,11 @@
   "scripts": {
     "prepare": "husky install",
     "postinstall": "sink fetch",
-    "clean": "rm -rf dist/* && rm -rf .parcel-cache",
-    "dev": "yarn clean && parcel src/index.html src/graphic/*.html",
+    "dev": "vite",
     "prebuild": "mkdir -p img",
-    "build": "yarn clean && node build.mjs",
-    "postbuild": "if [ \"$(ls -A img/)\" ]; then ((cd dist; mkdir -p img) && mv img/* dist/img/); fi"
-  },
-  "targets": {
-    "default": {
-      "publicUrl": "/"
-    }
+    "build": "node build.mjs",
+    "postbuild": "if [ \"$(ls -A img/)\" ]; then ((cd dist; mkdir -p img) && mv img/* dist/img/); fi",
+    "preview": "vite preview"
   },
   "dependencies": {
     "d3": "^7.6.1",
@@ -32,23 +28,17 @@
     "pym.js": "^1.3.2"
   },
   "devDependencies": {
-    "@michigandaily/parcel-transformer-dsv": "michigandaily/parcel-transformer-dsv#v2.0.1",
-    "@michigandaily/parcel-transformer-nunjucks": "michigandaily/parcel-transformer-nunjucks#v2.2.5",
-    "@parcel/core": "~2.8.0",
-    "@parcel/transformer-sass": "~2.8.0",
-    "buffer": "^5.5.0",
+    "@michigandaily/rollup-plugin-dsv": "michigandaily/rollup-plugin-dsv",
+    "@michigandaily/vite-plugin-transform-nunjucks": "michigandaily/vite-plugin-transform-nunjucks#v1.0.1",
     "dotenv": "^16.0.3",
     "eslint": "8.27.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.2.1",
     "husky": "^7.0.4",
-    "parcel": "~2.8.0",
     "playwright-core": "^1.27.1",
     "prettier": "2.7.1",
-    "process": "^0.11.10",
-    "sink": "michigandaily/sink#2.4.0"
-  },
-  "browserslist": [
-    "since 2017-06"
-  ]
+    "sass": "^1.56.1",
+    "sink": "michigandaily/sink#2.4.0",
+    "vite": "^3.2.4"
+  }
 }
