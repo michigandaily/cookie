@@ -41,6 +41,14 @@ window.onload = async () => {
     if (parent) {
       parent.remove();
     }
+
+    ["hed", "dek", "note", "source", "byline"].forEach((property) => {
+      $(`#${property}-checkbox`).disabled = !Object.hasOwn(
+        entries[e],
+        property
+      );
+    });
+
     parent = new pym.Parent("graphic", viewRawButton.href, {});
   };
 

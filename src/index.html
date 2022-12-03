@@ -31,32 +31,16 @@
       <button id="download-svg">Download as SVG</button>
     </span>
     <span class="options" id="display">
-      {%- if filename in config.entries %}
-      {%- if 'hed' in config.entries[filename] %}
       <input type="checkbox" id="hed-checkbox" name="hed" checked />
       <label for="hed-checkbox">Headline</label>
-      {%- endif %}
-      
-      {%- if 'dek' in config.entries[filename] %}
       <input type="checkbox" id="dek-checkbox" name="dek" checked />
       <label for="dek-checkbox">Description</label>
-      {%- endif %}
-
-      {%- if 'note' in config.entries[filename] %}
       <input type="checkbox" id="note-checkbox" name="note" checked />
       <label for="note-checkbox">Note</label>
-      {%- endif %}
-
-      {%- if 'source' in config.entries[filename] %}
       <input type="checkbox" id="source-checkbox" name="source" checked />
       <label for="source-checkbox">Source</label>
-      {%- endif %}
-
-      {%- if 'byline' in config.entries[filename] %}
       <input type="checkbox" id="byline-checkbox" name="byline" checked />
       <label for="byline-checkbox">Byline</label>
-      {%- endif %}
-      {%- endif %}
       <input type="checkbox" id="home-checkbox" name="home" />
       <label for="home-checkbox">Homepage</label>
     </span>
