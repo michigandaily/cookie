@@ -1,6 +1,7 @@
 import { resolve, parse } from "node:path";
 import { defineConfig } from "vite";
 import nunjucks from "@michigandaily/vite-plugin-transform-nunjucks";
+import dsv from "@michigandaily/rollup-plugin-dsv";
 
 import { entries } from "./config.json";
 const graphics = Object.assign(
@@ -14,7 +15,7 @@ const graphics = Object.assign(
 // https://vitejs.dev/config/
 export default defineConfig({
   base: "/",
-  plugins: [nunjucks()],
+  plugins: [nunjucks(), dsv({ include: ["**.csv", "**.tsv", "**.dsv"] })],
   root: resolve(__dirname, "src"),
   build: {
     outDir: resolve(__dirname, "dist"),

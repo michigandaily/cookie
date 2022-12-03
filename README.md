@@ -7,7 +7,7 @@ This template repository is designed to help The Michigan Daily data team quickl
 It has several useful features:
 
 - [x] MicroCMS with [ArchieML](http://archieml.org/)
-- [x] Bundling with [Parcel](https://parceljs.org/)
+- [x] Bundling with [Vite](https://vitejs.dev/)
 - [x] [D3v7](https://d3js.org/) as a dependency by default
 - [x] Templating with [Nunjucks](https://mozilla.github.io/nunjucks/)
 - [x] Easy deploy to GitHub Pages
@@ -51,7 +51,7 @@ You can import a CSV file in JS like this:
 import csvfile from "../data/data.csv";
 ```
 
-We use the [`@michigandaily/parcel-transformer-dsv`](https://github.com/MichiganDaily/parcel-transformer-dsv) plugin (which relies on [`d3-dsv`](https://github.com/d3/d3-dsv)) to parse a CSV file (or other [DSV](https://en.wikipedia.org/wiki/Delimiter-separated_values) files) into a usable array. You can prevent automatic typing by adding a `autoType=false` query parameter to the end of the import path. You can also specify which columns you want imported with a `columns` query parameter. Refer to the [transformer README](https://github.com/MichiganDaily/parcel-transformer-dsv#parcel-transformer-dsv) for examples.
+We use the [`@michigandaily/rollup-plugin-dsv`](https://github.com/MichiganDaily/rollup-plugin-dsv) plugin (which relies on [`d3-dsv`](https://github.com/d3/d3-dsv)) to parse CSV files (or other [DSV](https://en.wikipedia.org/wiki/Delimiter-separated_values) files) into usable arrays. You can prevent automatic typing by adding a `autoType=false` query parameter to the end of the import path. You can also specify which columns you want imported with a `columns` query parameter. Refer to the [transformer README](https://github.com/MichiganDaily/rollup-plugin-dsv#readme) for examples.
 
 ### Including `ai2html` output
 
@@ -65,14 +65,14 @@ We use the [`@michigandaily/parcel-transformer-dsv`](https://github.com/Michigan
 
 Refer to the [AWS S3 deployment with cache invalidation](https://github.com/MichiganDaily/sink/tree/main#aws-s3-deployment-with-cache-invalidation) section in the `sink` README for instructions on how to set up `config.json` for deploying to AWS S3.
 
-1. Ensure that `targets.default.publicUrl` in `package.json` is set to the `key` prepended by a `/`.
+1. Ensure sure that `base` in `vite.config.js` is routed correctly (it should probably be `config.key` prepended and appended by a `/`).
 2. Run `yarn sink deploy aws`.
 
 ### Deploying to GitHub Pages
 
 Refer to the [GitHub Pages deployment](https://github.com/MichiganDaily/sink/tree/main#github-pages-deployment) section in the `sink` README for instructions on how to set up `config.json` for deploying to GitHub Pages.
 
-1. Ensure that `targets.default.publicUrl` in `package.json` is set to the repository name prepended by a `/`.
+1. Ensure sure that `base` in `vite.config.js` is routed correctly (it should probably be `config.key` prepended and appended by a `/`).
 2. Run `yarn sink deploy github`.
 3. Go to [`Settings > Pages`](../../settings/pages) and check the **Enforce HTTPS** option. All of our sites should enforce HTTPS, so please make sure to double check this!
 4. Your raw graphic will be accessible at `https://michigandaily.github.io/<repository-name>/graphic/index.html`.
