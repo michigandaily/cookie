@@ -31,6 +31,7 @@
       <button id="download-svg">Download as SVG</button>
     </span>
     <span class="options" id="display">
+      {%- if filename in config.entries %}
       {%- if 'hed' in config.entries[filename] %}
       <input type="checkbox" id="hed-checkbox" name="hed" checked />
       <label for="hed-checkbox">Headline</label>
@@ -55,7 +56,7 @@
       <input type="checkbox" id="byline-checkbox" name="byline" checked />
       <label for="byline-checkbox">Byline</label>
       {%- endif %}
-
+      {%- endif %}
       <input type="checkbox" id="home-checkbox" name="home" />
       <label for="home-checkbox">Homepage</label>
     </span>
