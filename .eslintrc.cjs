@@ -18,20 +18,6 @@ module.exports = {
     "prefer-arrow-callback": "error",
     "arrow-spacing": "error",
     eqeqeq: "error",
-    "prettier/prettier": [
-      "error",
-      {
-        bracketSpacing: true,
-        printWidth: 80,
-        semi: true,
-        tabWidth: 2,
-        trailingComma: "es5",
-        quotes: [
-          "error",
-          "double",
-          { avoidEscape: true, allowTemplateLiterals: false },
-        ],
-      },
-    ],
+    "prettier/prettier": "error",
   },
 };
