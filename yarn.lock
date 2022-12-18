@@ -1247,9 +1247,9 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@michigandaily/rollup-plugin-dsv@michigandaily/rollup-plugin-dsv":
-  version "1.0.0"
-  resolved "https://codeload.github.com/michigandaily/rollup-plugin-dsv/tar.gz/da0acdd74980ad5c741b3f996fd3df9823953ec4"
+"@michigandaily/rollup-plugin-dsv@michigandaily/rollup-plugin-dsv#v2.0.0":
+  version "2.0.0"
+  resolved "https://codeload.github.com/michigandaily/rollup-plugin-dsv/tar.gz/e0ddbf9f9999c7d7ba33b0865d8183dd33d351ec"
   dependencies:
     "@rollup/pluginutils" "^5.0.2"
     d3-dsv "^3.0.1"
