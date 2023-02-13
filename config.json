@@ -31,11 +31,11 @@
     }
   ],
   "deployment": {
-    "url": "https://michigandaily.github.io/",
+    "url": "https://test.michigandaily.com/temp/unspecified_key/",
     "region": "us-east-2",
     "distribution": "",
-    "bucket": "",
-    "key": "",
+    "bucket": "test.michigandaily.com",
+    "key": "temp/unspecified_key",
     "build": "./dist",
     "profile": "sink"
   }
