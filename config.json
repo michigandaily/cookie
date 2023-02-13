@@ -31,11 +31,11 @@
     }
   ],
   "deployment": {
-    "url": "https://test.michigandaily.com/2023/unspecified_key/",
+    "url": "https://test.michigandaily.com/temp/unspecified_key/",
     "region": "us-east-2",
     "distribution": "",
     "bucket": "test.michigandaily.com",
-    "key": "2023/unspecified_key",
+    "key": "temp/unspecified_key",
     "build": "./dist",
     "profile": "sink"
   }
