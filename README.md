@@ -73,10 +73,9 @@ Refer to the [AWS S3 deployment with cache invalidation](https://github.com/Mich
 Refer to the [GitHub Pages deployment](https://github.com/MichiganDaily/sink/tree/main#github-pages-deployment) section in the `sink` README for instructions on how to set up `config.json` for deploying to GitHub Pages.
 
 1. Ensure sure that `base` in `vite.config.js` is routed correctly (it should probably be `config.key` prepended and appended by a `/`).
-2. Make sure to double-check that you have entered a valid key in config.json.
-3. Run `yarn sink deploy github`.
-4. Go to [`Settings > Pages`](../../settings/pages) and check the **Enforce HTTPS** option. All of our sites should enforce HTTPS, so please make sure to double check this!
-5. Your raw graphic will be accessible at `https://michigandaily.github.io/<repository-name>/graphic/index.html`.
+2. Run `yarn sink deploy github`.
+3. Go to [`Settings > Pages`](../../settings/pages) and check the **Enforce HTTPS** option. All of our sites should enforce HTTPS, so please make sure to double check this!
+4. Your raw graphic will be accessible at `https://michigandaily.github.io/<repository-name>/graphic/index.html`.
 
 ### Playwright screenshots
 
