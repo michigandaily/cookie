@@ -14,7 +14,7 @@ const graphics = Object.assign(
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: `/${deployment.key}/`,
+  base: deployment.key.length === 0 ? "/" : `/${deployment.key}/`,
   plugins: [nunjucks(), dsv({ include: ["**.csv", "**.tsv", "**.dsv"] })],
   root: resolve(__dirname, "src"),
   build: {
