@@ -9,6 +9,7 @@ It has several useful features:
 - [x] MicroCMS with [ArchieML](http://archieml.org/)
 - [x] Bundling with [Vite](https://vitejs.dev/)
 - [x] [D3v7](https://d3js.org/) as a dependency by default
+- [x] [bore](https://github.com/MichiganDaily/bore) as a dependency by default
 - [x] Templating with [Nunjucks](https://mozilla.github.io/nunjucks/)
 - [x] Easy deploy to GitHub Pages
 - [x] Easy deploy to S3 bucket
