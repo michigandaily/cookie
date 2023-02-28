@@ -22,7 +22,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@michigandaily/bore": "michigandaily/bore#v3.0.0",
+    "@michigandaily/bore": "michigandaily/bore#v3.0.1",
     "d3": "^7.8.2",
     "dom-to-svg": "^0.12.2",
     "html-to-image": "^1.11.11",
