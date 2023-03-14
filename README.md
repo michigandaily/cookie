@@ -80,8 +80,8 @@ Refer to the [GitHub Pages deployment](https://github.com/MichiganDaily/sink/tre
 
 ### Playwright screenshots
 
-Running `yarn build` will 1) build production files and 2) trigger a process where Playwright spawns a headless Chrome browser and downloads screenshots of the graphics. If the script is unable to find a cached version of Chrome or is unable to use your default Chrome installation, it will install Chrome in a cache folder.
+Running `yarn build` will 1) build production files and 2) optionally trigger a process where Playwright spawns a headless Chrome browser and downloads screenshots of the graphics. If the script is unable to find a cached version of Chrome or is unable to use your default Chrome installation, it will install Chrome in a cache folder.
 
-If you don't want `yarn build` to trigger the Playwright process, set `COOKIE_SCREENSHOT=false` in a `.env` file.
+If you want `yarn build` to trigger the Playwright process, set `COOKIE_SCREENSHOT=true` in a `.env` file.
 
-You can also prevent the screenshot process by setting the environment variable inline prior to a command: `COOKIE_SCREENSHOT=false yarn build` or `COOKIE_SCREENSHOT=false yarn sink deploy github`.
+You can also start the screenshot process by setting the environment variable inline prior to a command: `COOKIE_SCREENSHOT=true yarn build` or `COOKIE_SCREENSHOT=true yarn sink deploy github`.

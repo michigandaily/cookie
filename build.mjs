@@ -39,7 +39,7 @@ const main = async () => {
   }
 
   const sc = process.env.COOKIE_SCREENSHOT;
-  const shouldScreenshot = sc === undefined ? true : sc === "true";
+  const shouldScreenshot = sc === undefined ? false : sc === "true";
 
   await build();
   const previewServer = await preview();
