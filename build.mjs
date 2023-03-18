@@ -59,6 +59,7 @@ const main = async () => {
     previewServer.httpServer.close();
     return;
   }
+
   const page = await browser.newPage();
   const screenSizes = [780, 338, 288];
 
@@ -72,7 +73,8 @@ const main = async () => {
     ]);
 
     const entryName = basename(entry, ".html");
-    const path = `./img/cookie-graphic-${entryName}-${size}-${new Date().toISOString()}.${format}`;
+    const date = new Date().toISOString().replaceAll(":", "-");
+    const path = `./dist/img/cookie-graphic-${entryName}-${size}-${date}.${format}`;
     console.log("Saving screenshot to", path);
     await download.saveAs(path);
   };
@@ -88,6 +90,7 @@ const main = async () => {
     await downloadAndSave(entry, size, "png");
     await downloadAndSave(entry, size, "svg");
   }
+
   await browser.close();
   previewServer.httpServer.close();
 };
