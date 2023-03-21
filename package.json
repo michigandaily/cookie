@@ -37,7 +37,7 @@
     "playwright-core": "^1.31.2",
     "prettier": "2.8.4",
     "sass": "^1.59.3",
-    "sink": "michigandaily/sink#v2.7.2",
+    "sink": "michigandaily/sink#v2.7.3",
     "vite": "^4.2.0"
   }
 }
