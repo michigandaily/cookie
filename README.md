@@ -34,11 +34,11 @@ There are some [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/
 
 If you are embedding the graphic on the homepage, add the `homepage` class to the `body` tag. This will set the headline font to Lora, and will set the body font to Open Sans.
 
-If you want to develop another graphic in the same instance, create a new HTML file in `src/graphic` that uses the `base.html` template. Refer to `src/graphic/index.html` for how to extend the template. You'll also need to create a new entry in `config.json`.
+If you want to develop another graphic in the same instance, create a new HTML file in `src/graphic` that uses the `base.html` template. Refer to `src/graphic/index.html` for how to extend the template. You'll also need to create a new entry in `sink.config.json`.
 
 ### Fetching from Google Drive
 
-Refer to the [Google Drive fetch](https://github.com/MichiganDaily/sink/tree/main#google-drive-fetch) section in the `sink` README for instructions on how to set up `config.json` for fetching files from Google Drive.
+Refer to the [Google Drive fetch](https://github.com/MichiganDaily/sink/tree/main#google-drive-fetch) section in the `sink` README for instructions on how to set up `sink.config.json` for fetching files from Google Drive.
 
 You can import a JSON file in JS like this:
 
@@ -60,18 +60,18 @@ We use the [`@michigandaily/rollup-plugin-dsv`](https://github.com/MichiganDaily
 2. Save the instance to the root of this repository.
 3. Set the red and bold `filename` value under the `ai2html-text` section to the name of the instance file name.
 4. Generate the ai2html output. It should be in `src/graphic/ai2html-output`.
-5. In `config.json`, set `illustrator_output_filename` to the HTML output file.
+5. In `sink.config.json`, set `illustrator_output_filename` to the HTML output file.
 
 ### Deploying to AWS S3
 
-Refer to the [AWS S3 deployment with cache invalidation](https://github.com/MichiganDaily/sink/tree/main#aws-s3-deployment-with-cache-invalidation) section in the `sink` README for instructions on how to set up `config.json` for deploying to AWS S3.
+Refer to the [AWS S3 deployment with cache invalidation](https://github.com/MichiganDaily/sink/tree/main#aws-s3-deployment-with-cache-invalidation) section in the `sink` README for instructions on how to set up `sink.config.json` for deploying to AWS S3.
 
 1. Ensure sure that `base` in `vite.config.js` is routed correctly (it should probably be `config.key` prepended and appended by a `/`).
 2. Run `yarn sink deploy aws`.
 
 ### Deploying to GitHub Pages
 
-Refer to the [GitHub Pages deployment](https://github.com/MichiganDaily/sink/tree/main#github-pages-deployment) section in the `sink` README for instructions on how to set up `config.json` for deploying to GitHub Pages.
+Refer to the [GitHub Pages deployment](https://github.com/MichiganDaily/sink/tree/main#github-pages-deployment) section in the `sink` README for instructions on how to set up `sink.config.json` for deploying to GitHub Pages.
 
 1. Ensure sure that `base` in `vite.config.js` is routed correctly (it should probably be `config.key` prepended and appended by a `/`).
 2. Run `yarn sink deploy github`.

@@ -31,9 +31,7 @@
     }
   ],
   "deployment": {
-    "url": "https://test.michigandaily.com/tmp/key/",
     "region": "us-east-2",
-    "distribution": "",
     "bucket": "test.michigandaily.com",
     "key": "tmp/key",
     "build": "./dist",

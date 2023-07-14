@@ -31,7 +31,7 @@ const getBrowser = async () => {
 };
 
 const main = async () => {
-  const config = readJson("./config.json");
+  const config = readJson("./sink.config.json");
   const entries = Object.keys(config.entries);
 
   if (existsSync(".env")) {

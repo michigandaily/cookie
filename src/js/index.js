@@ -11,7 +11,7 @@ window.onload = async () => {
     updateQueryParams(params);
   };
 
-  const { entries } = await import("../../config.json");
+  const { entries } = await import("../../sink.config.json");
   const keys = Object.keys(entries);
   let entry = params.get("entry") ?? keys[0];
 

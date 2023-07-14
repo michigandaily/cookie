@@ -3,7 +3,8 @@ import { defineConfig } from "vite";
 import nunjucks from "@michigandaily/vite-plugin-transform-nunjucks";
 import dsv from "@michigandaily/rollup-plugin-dsv";
 
-import { entries, deployment } from "./config.json";
+import { entries, deployment } from "./sink.config.json";
+
 const graphics = Object.assign(
   ...Object.keys(entries)
     .map((entry) => parse(entry))
