@@ -43,13 +43,13 @@ Refer to the [Google Drive fetch](https://github.com/MichiganDaily/sink/tree/mai
 You can import a JSON file in JS like this:
 
 ```js
-import copy from "../data/data.json";
+import copy from '../data/data.json';
 ```
 
 You can import a CSV file in JS like this:
 
 ```js
-import csvfile from "../data/data.csv";
+import csvfile from '../data/data.csv';
 ```
 
 We use the [`@michigandaily/rollup-plugin-dsv`](https://github.com/MichiganDaily/rollup-plugin-dsv) plugin (which relies on [`d3-dsv`](https://github.com/d3/d3-dsv)) to parse CSV files (or other [DSV](https://en.wikipedia.org/wiki/Delimiter-separated_values) files) into usable arrays. You can prevent automatic typing by adding a `autoType=false` query parameter to the end of the import path. You can also specify which columns you want imported with a `columns` query parameter. Refer to the [transformer README](https://github.com/MichiganDaily/rollup-plugin-dsv#readme) for examples.

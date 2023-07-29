@@ -1,43 +1,42 @@
 {
-  "name": "cookie",
-  "version": "3.5.2",
-  "type": "module",
-  "description": "Graphics template for The Michigan Daily",
-  "author": {
-    "name": "Naitian Zhou"
-  },
-  "contributors": [
-    {
-      "name": "Eric Lau"
-    }
-  ],
-  "license": "MIT",
-  "scripts": {
-    "prepare": "husky install",
-    "postinstall": "sink fetch",
-    "dev": "vite",
-    "build": "node build.mjs",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@michigandaily/bore": "michigandaily/bore#v3.0.1",
-    "d3": "^7.8.5",
-    "dom-to-svg": "^0.12.2",
-    "html-to-image": "^1.11.11",
-    "pym.js": "^1.3.2"
-  },
-  "devDependencies": {
-    "@michigandaily/rollup-plugin-dsv": "michigandaily/rollup-plugin-dsv#v2.0.0",
-    "@michigandaily/vite-plugin-transform-nunjucks": "michigandaily/vite-plugin-transform-nunjucks#v1.1.0",
-    "dotenv": "^16.3.1",
-    "eslint": "8.36.0",
-    "eslint-config-prettier": "8.7.0",
-    "eslint-plugin-prettier": "4.2.1",
-    "husky": "^8.0.3",
-    "playwright-core": "^1.36.0",
-    "prettier": "2.8.4",
-    "sass": "^1.63.6",
-    "sink": "michigandaily/sink#v2.8.0",
-    "vite": "^4.4.3"
-  }
+	"name": "cookie",
+	"version": "3.5.2",
+	"type": "module",
+	"description": "Graphics template for The Michigan Daily",
+	"author": {
+		"name": "Naitian Zhou"
+	},
+	"contributors": [
+		{
+			"name": "Eric Lau"
+		}
+	],
+	"license": "MIT",
+	"scripts": {
+		"postinstall": "sink fetch",
+		"dev": "vite",
+		"build": "node build.mjs",
+		"preview": "vite preview",
+		"lint": "eslint . --ext js",
+		"format": "prettier --write ."
+	},
+	"dependencies": {
+		"@michigandaily/bore": "michigandaily/bore#v3.0.1",
+		"d3": "^7.8.5",
+		"dom-to-svg": "^0.12.2",
+		"html-to-image": "^1.11.11",
+		"pym.js": "^1.3.2"
+	},
+	"devDependencies": {
+		"@michigandaily/rollup-plugin-dsv": "michigandaily/rollup-plugin-dsv#v2.0.0",
+		"@michigandaily/vite-plugin-transform-nunjucks": "michigandaily/vite-plugin-transform-nunjucks#v1.1.0",
+		"dotenv": "^16.3.1",
+		"eslint": "8.46.0",
+		"eslint-config-prettier": "^8.9.0",
+		"playwright-core": "^1.36.2",
+		"prettier": "3.0.0",
+		"sass": "^1.64.1",
+		"sink": "michigandaily/sink#v2.8.0",
+		"vite": "^4.4.3"
+	}
 }

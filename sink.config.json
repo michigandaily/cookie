@@ -1,40 +1,40 @@
 {
-  "entries": {
-    "index.html": {
-      "hed": "Headline",
-      "dek": "This is a short description",
-      "byline": "Firstname Lastname",
-      "source": "This is the source",
-      "note": "This is a note",
-      "illustrator_output_filename": "output.html"
-    }
-  },
-  "fetch": [
-    {
-      "type": "doc",
-      "id": "",
-      "output": "",
-      "auth": "~/.daily-google-services.json"
-    },
-    {
-      "type": "sheet",
-      "id": "",
-      "sheetId": "0",
-      "output": "",
-      "auth": "~/.daily-google-services.json"
-    },
-    {
-      "type": "json",
-      "id": "",
-      "output": "",
-      "auth": "~/.daily-google-services.json"
-    }
-  ],
-  "deployment": {
-    "region": "us-east-2",
-    "bucket": "test.michigandaily.com",
-    "key": "tmp/key",
-    "build": "./dist",
-    "profile": "sink"
-  }
+	"entries": {
+		"index.html": {
+			"hed": "Headline",
+			"dek": "This is a short description",
+			"byline": "Firstname Lastname",
+			"source": "This is the source",
+			"note": "This is a note",
+			"illustrator_output_filename": "output.html"
+		}
+	},
+	"fetch": [
+		{
+			"type": "doc",
+			"id": "",
+			"output": "",
+			"auth": "~/.daily-google-services.json"
+		},
+		{
+			"type": "sheet",
+			"id": "",
+			"sheetId": "0",
+			"output": "",
+			"auth": "~/.daily-google-services.json"
+		},
+		{
+			"type": "json",
+			"id": "",
+			"output": "",
+			"auth": "~/.daily-google-services.json"
+		}
+	],
+	"deployment": {
+		"region": "us-east-2",
+		"bucket": "test.michigandaily.com",
+		"key": "tmp/key",
+		"build": "./dist",
+		"profile": "sink"
+	}
 }
