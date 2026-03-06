@@ -1,4 +1,4 @@
-import { readFileSync, existsSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import { basename } from 'node:path';
 import process from 'node:process';
 
@@ -7,7 +7,7 @@ import { config as parseEnvironmentVariables } from 'dotenv';
 import { chromium } from 'playwright-core';
 import { installBrowsersForNpmInstall } from 'playwright-core/lib/server';
 
-const readJson = (path) => JSON.parse(readFileSync(path).toString());
+import config from './sink.config.js';
 
 const getBrowser = async () => {
 	let browser;
@@ -32,7 +32,6 @@ const getBrowser = async () => {
 };
 
 const main = async () => {
-	const config = readJson('./sink.config.json');
 	const entries = Object.keys(config.entries);
 
 	if (existsSync('.env')) {
